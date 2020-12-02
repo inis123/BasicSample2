@@ -17,6 +17,7 @@
 package com.example.android.persistence.db;
 
 import com.example.android.persistence.db.entity.CommentEntity;
+import com.example.android.persistence.db.entity.KundenEntity;
 import com.example.android.persistence.db.entity.ProductEntity;
 import com.example.android.persistence.model.Product;
 
@@ -40,6 +41,23 @@ public class DataGenerator {
             "is the best sold product on Mêlée Island", "is \uD83D\uDCAF", "is ❤️", "is fine"};
     private static final String[] COMMENTS = new String[]{
             "Comment 1", "Comment 2", "Comment 3", "Comment 4", "Comment 5", "Comment 6"};
+
+    public static List<KundenEntity> generateKunden() {
+        List<KundenEntity> kunde = new ArrayList<>(FIRST.length * SECOND.length);
+        Random rnd = new Random();
+        for (int i = 0; i < FIRST.length; i++) {
+            for (int j = 0; j < SECOND.length; j++) {
+                KundenEntity kunden = new KundenEntity();
+                kunden.setName(FIRST[i] + " " + SECOND[j]);
+                kunden.setNachname(kunden.getName() + " " + DESCRIPTION[j]);
+                kunden.setAlter(rnd.nextInt(240));
+                kunden.setId(FIRST.length * i + j + 1);
+                kunde.add(kunden);
+            }
+        }
+        return kunde;
+    }
+
 
     public static List<ProductEntity> generateProducts() {
         List<ProductEntity> products = new ArrayList<>(FIRST.length * SECOND.length);

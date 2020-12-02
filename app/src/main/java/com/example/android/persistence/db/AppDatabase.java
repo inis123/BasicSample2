@@ -30,14 +30,16 @@ import androidx.annotation.VisibleForTesting;
 import com.example.android.persistence.AppExecutors;
 import com.example.android.persistence.db.converter.DateConverter;
 import com.example.android.persistence.db.dao.CommentDao;
+import com.example.android.persistence.db.dao.KundenDao;
 import com.example.android.persistence.db.dao.ProductDao;
 import com.example.android.persistence.db.entity.CommentEntity;
+import com.example.android.persistence.db.entity.KundenEntity;
 import com.example.android.persistence.db.entity.ProductEntity;
 
 import com.example.android.persistence.db.entity.ProductFtsEntity;
 import java.util.List;
 
-@Database(entities = {ProductEntity.class, ProductFtsEntity.class, CommentEntity.class}, version = 2)
+@Database(entities = {ProductEntity.class, ProductFtsEntity.class, CommentEntity.class, KundenEntity.class}, version = 2)
 @TypeConverters(DateConverter.class)
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -47,6 +49,8 @@ public abstract class AppDatabase extends RoomDatabase {
     public static final String DATABASE_NAME = "basic-sample-db";
 
     public abstract ProductDao productDao();
+
+    public abstract KundenDao  kundenDao();
 
     public abstract CommentDao commentDao();
 
@@ -81,11 +85,13 @@ public abstract class AppDatabase extends RoomDatabase {
                             addDelay();
                             // Generate the data for pre-population
                             AppDatabase database = AppDatabase.getInstance(appContext, executors);
+
+                            List<KundenEntity> kunden = DataGenerator.generateKunden();
                             List<ProductEntity> products = DataGenerator.generateProducts();
                             List<CommentEntity> comments =
                                     DataGenerator.generateCommentsForProducts(products);
 
-                            insertData(database, products, comments);
+                            insertData(database, products, comments,kunden);
                             // notify that the database was created and it's ready to be used
                             database.setDatabaseCreated();
                         });
@@ -109,10 +115,11 @@ public abstract class AppDatabase extends RoomDatabase {
     }
 
     private static void insertData(final AppDatabase database, final List<ProductEntity> products,
-            final List<CommentEntity> comments) {
+            final List<CommentEntity> comments, final List<KundenEntity> kunden) {
         database.runInTransaction(() -> {
             database.productDao().insertAll(products);
             database.commentDao().insertAll(comments);
+            database.kundenDao().insertAll(kunden);
         });
     }
 
@@ -131,8 +138,9 @@ public abstract class AppDatabase extends RoomDatabase {
 
         @Override
         public void migrate(@NonNull SupportSQLiteDatabase database) {
-            database.execSQL("CREATE VIRTUAL TABLE IF NOT EXISTS `productsFts` USING FTS4("
-                + "`name` TEXT, `description` TEXT, content=`products`)");
+
+           // database.execSQL("CREATE VIRTUAL TABLE IF NOT EXISTS `productsFts` USING FTS4("
+            //    + "`name` TEXT, `description` TEXT, content=`products`)");
             database.execSQL("INSERT INTO productsFts (`rowid`, `name`, `description`) "
                 + "SELECT `id`, `name`, `description` FROM products");
 
