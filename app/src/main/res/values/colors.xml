@@ -21,4 +21,8 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="comment_light_background">#d6d6d6</color>
+    <color name="s_mangenta">#C4006B</color>
+    <color name="s_grau">#6F6F6F</color>
+    <color name="flache_grau">#E6E2E2</color>color>
+    <color name="background_grey">#F7F7F7</color>
 </resources>

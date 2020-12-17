@@ -70,6 +70,7 @@ dependencies {
 
     // Architecture components
     implementation deps.lifecycle.runtime
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     annotationProcessor deps.lifecycle.compiler
     implementation deps.room.runtime
     annotationProcessor deps.room.compiler
