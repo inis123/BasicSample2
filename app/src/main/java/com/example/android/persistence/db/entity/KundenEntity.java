@@ -1,29 +1,40 @@
 package com.example.android.persistence.db.entity;
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-import com.example.android.persistence.db.dao.KundenDao;
 import com.example.android.persistence.model.Kunde;
 import com.example.android.persistence.model.Product;
 
-@Entity(tableName = "kunden")
+@Entity(tableName = "kunden",
+        foreignKeys = {
+                @ForeignKey(entity = PersonEntity.class,
+                        parentColumns = "personID",
+                        childColumns = "personID",
+                        onDelete = ForeignKey.CASCADE)})
 public class KundenEntity implements Kunde {
 
        @PrimaryKey(autoGenerate = true)
-        private int id;
+        private int kundenID;
+
         private String name;
         private String nachname;
         private int alter;
+        private int personID;
 
         @Override
-        public int getId() {
-            return id;
+        public int getKundenID() {
+            return kundenID;
+        }
+         @Override
+        public int getPersonID() {
+        return personID;
         }
 
-        public void setId(int id) {
-            this.id = id;
+        public void setKundenID(int kundenID) {
+            this.kundenID = kundenID;
         }
 
         @Override
@@ -55,18 +66,27 @@ public class KundenEntity implements Kunde {
         }
 
         @Ignore
-        public KundenEntity(int id, String name, String description, int price) {
-            this.id = id;
+        public KundenEntity(int kundenID, String name, String nachname, int price,int personID) {
+            this.kundenID = kundenID;
             this.name = name;
-            this.nachname = description;
+            this.nachname = nachname;
             this.alter = price;
+            this.personID=personID;
         }
+    @Ignore
+    public KundenEntity( String name, String nachname, int price,int personID) {
+        this.name = name;
+        this.nachname = nachname;
+        this.alter = price;
+        this.personID=personID;
+    }
 
-        public KundenEntity(Product product) {
-            this.id = product.getId();
-            this.name = product.getName();
-            this.nachname = product.getDescription();
-            this.alter = product.getPrice();
+        public KundenEntity(Kunde kunde) {
+            this.kundenID = kunde.getPersonID();
+            this.name = kunde.getName();
+            this.nachname = kunde.getNachname();
+            this.alter = kunde.getAlter();
+            this.personID=kunde.getPersonID();
         }
     }
 

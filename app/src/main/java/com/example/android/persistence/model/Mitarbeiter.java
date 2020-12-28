@@ -4,4 +4,6 @@ public interface Mitarbeiter {
     int getPersonId();
 
     int getMitarbeiterNr();
+
+    String getPassword();
 }

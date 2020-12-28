@@ -1,8 +1,9 @@
 package com.example.android.persistence.model;
 
 public interface Kunde {
-    int getId();
+    int getKundenID();
     String getName();
     String getNachname();
     int getAlter();
+    int getPersonID();
 }

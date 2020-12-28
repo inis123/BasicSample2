@@ -1,6 +1,7 @@
 package com.example.android.persistence.db.entity;
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
@@ -17,11 +18,23 @@ import com.example.android.persistence.model.Termin;
 import com.example.android.persistence.model.Person;
 import com.example.android.persistence.model.Product;
 
-    @Entity(tableName = "termin")
+    @Entity(tableName = "termin",
+            foreignKeys = {
+                    @ForeignKey(entity = PersonEntity.class,
+                            parentColumns = "personID",
+                            childColumns = "personID",
+                            onDelete = ForeignKey.CASCADE),
+                    @ForeignKey(entity = MitarbeiterEntity.class,
+                            parentColumns = "mitarbeiterNr",
+                            childColumns = "mitarbeiterNr",
+                            onDelete = ForeignKey.CASCADE),
+
+    })
     public class TerminEntity implements Termin {
 
         @PrimaryKey(autoGenerate = true)
         private int terminNr;
+
         private int mitarbeiterNr;
         private int personID;
         private long datum; //converter

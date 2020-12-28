@@ -12,4 +12,6 @@ public interface Adresse {
     String getStrasse();
 
     String getOrt();
+
+    int getPersonID();
 }

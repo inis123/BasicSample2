@@ -51,7 +51,7 @@ public class DataGenerator {
                 kunden.setName(FIRST[i] + " " + SECOND[j]);
                 kunden.setNachname(kunden.getName() + " " + DESCRIPTION[j]);
                 kunden.setAlter(rnd.nextInt(240));
-                kunden.setId(FIRST.length * i + j + 1);
+                kunden.setKundenID(FIRST.length * i + j + 1);
                 kunde.add(kunden);
             }
         }
