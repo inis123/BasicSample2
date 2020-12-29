@@ -26,6 +26,6 @@ public interface MitarbeiterDao {
     @Delete
     void delete(MitarbeiterEntity mitarbeiter);
 
-    @Query("SELECT * FROM person p  WHERE EXISTS(SELECT * FROM mitarbeiter m WHERE p.personID==m.personID) ")
-    PersonEntity getPerson(MitarbeiterEntity mitarbeiter);
+    @Query("SELECT * FROM person p  WHERE EXISTS(SELECT * FROM mitarbeiter m WHERE p.personID==m.personID) AND p.personID == :mitarbeiterPersonID ")
+    PersonEntity getPerson(int mitarbeiterPersonID);
 }

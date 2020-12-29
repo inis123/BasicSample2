@@ -25,6 +25,6 @@ public interface InteressentDao {
     @Delete
     void delete(InteressentEntity interessent);
 
-    @Query("SELECT * FROM person p  WHERE EXISTS(SELECT * FROM interessent i WHERE p.personID==i.personID) ")
-    PersonEntity getPerson(InteressentEntity interessent);
+    @Query("SELECT * FROM person p  WHERE EXISTS(SELECT * FROM interessent m WHERE p.personID==m.personID) AND p.personID == :interessentPersonID ")
+    PersonEntity getPerson(int interessentPersonID);
 }

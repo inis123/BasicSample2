@@ -25,7 +25,7 @@ public interface KundenDao {
         @Delete
         void delete(KundenEntity kunde);
 
-        @Query("SELECT * FROM person p  WHERE EXISTS(SELECT * FROM kunde k WHERE p.personID==k.personID) ")
-        PersonEntity getPerson(KundenEntity kunde);
+        @Query("SELECT * FROM person p  WHERE EXISTS(SELECT * FROM kunde m WHERE p.personID==m.personID) AND p.personID == :kundenPersonID ")
+        PersonEntity getPerson(int kundenPersonID);
 
 };
