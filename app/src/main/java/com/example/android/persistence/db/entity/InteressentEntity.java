@@ -2,7 +2,6 @@ package com.example.android.persistence.db.entity;
 
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
-import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.example.android.persistence.model.Interessent;
@@ -17,7 +16,7 @@ import com.example.android.persistence.model.Interessent;
     public class InteressentEntity implements Interessent {
 
         @PrimaryKey(autoGenerate = true)
-        private int InteressentID;
+        private int interessentID;
 
 
         private String notiz;
@@ -26,8 +25,8 @@ import com.example.android.persistence.model.Interessent;
         public InteressentEntity(){}
 
 
-        public InteressentEntity(int InteressentID, String notiz, String Stellung, int personID) {
-            this.InteressentID = InteressentID;
+        public InteressentEntity(int interessentID, String notiz, String Stellung, int personID) {
+            this.interessentID = interessentID;
             this.notiz = notiz;
             this.Stellung = Stellung;
             this.personID=personID;
@@ -39,15 +38,15 @@ import com.example.android.persistence.model.Interessent;
             this.personID=personID;
         }
 
-        public InteressentEntity(Interessent Interessent) {
-            this.InteressentID = Interessent.getInteressentID();
-            this.notiz = Interessent.getNotiz();
-            this.Stellung = getStellung();
-            this.personID=getPersonID();
+        public InteressentEntity(Interessent interessent) {
+            this.interessentID = interessent.getInteressentID();
+            this.notiz = interessent.getNotiz();
+            this.Stellung = interessent.getStellung();
+            this.personID=interessent.getPersonID();
         }
         @Override
         public int getInteressentID() {
-            return InteressentID;
+            return interessentID;
         }
         @Override
         public String getNotiz() {

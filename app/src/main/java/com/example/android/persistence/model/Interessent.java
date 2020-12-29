@@ -7,6 +7,7 @@ public interface Interessent {
     public String getNotiz() ;
 
     public String getStellung();
-
     public int getPersonID();
+
+
 }

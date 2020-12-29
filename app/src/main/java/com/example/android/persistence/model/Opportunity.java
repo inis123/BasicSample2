@@ -6,4 +6,5 @@ public interface Opportunity {
     public long getZeitrahmen();
     public String getNotiz();
     public String getStatus();
+    public int getInteressentID();
 }
