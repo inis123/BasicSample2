@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
 import com.example.android.persistence.model.Kunde;
 import com.example.android.persistence.model.Product;
 
-@Entity(tableName = "kunden",
+@Entity(tableName = "kunde",
         foreignKeys = {
                 @ForeignKey(entity = PersonEntity.class,
                         parentColumns = "personID",
@@ -73,13 +73,13 @@ public class KundenEntity implements Kunde {
             this.alter = price;
             this.personID=personID;
         }
-    @Ignore
-    public KundenEntity( String name, String nachname, int price,int personID) {
-        this.name = name;
-        this.nachname = nachname;
-        this.alter = price;
-        this.personID=personID;
-    }
+        @Ignore
+         public KundenEntity( String name, String nachname, int price,int personID) {
+          this.name = name;
+          this.nachname = nachname;
+          this.alter = price;
+          this.personID=personID;
+        }
 
         public KundenEntity(Kunde kunde) {
             this.kundenID = kunde.getPersonID();

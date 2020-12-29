@@ -21,39 +21,7 @@ public class PersonEntity implements Person {
 
 
 
-    public void setId(int id) {
-        this.personID = id;
-    }
 
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public int getPersonId() {
-        return personID;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getNachname() {
-        return nachname;
-    }
-
-    public void setNachname(String nachname) {
-        this.nachname = nachname;
-    }
-
-    public int getAlter() {
-        return alter;
-    }
-
-    public void setAlter(int alter) {
-        this.alter = alter;
-    }
 
     public PersonEntity() {
     }
@@ -72,5 +40,38 @@ public class PersonEntity implements Person {
         this.name = person.getName();
         this.nachname = person.getNachname();
         this.alter = person.getAlter();
+    }
+
+
+
+
+    @Override
+    public String getName() {
+        return name;
+    }
+    @Override
+    public int getPersonId() {
+        return personID;
+    }
+    @Override
+    public String getNachname() {
+        return nachname;
+    }
+    @Override
+    public int getAlter() {
+        return alter;
+    }
+
+    public void setId(int id) {
+        this.personID = id;
+    }
+    public void setAlter(int alter) {
+        this.alter = alter;
+    }
+    public void setNachname(String nachname) {
+        this.nachname = nachname;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 }

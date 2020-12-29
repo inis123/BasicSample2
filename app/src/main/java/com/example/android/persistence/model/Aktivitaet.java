@@ -1,15 +1,21 @@
 package com.example.android.persistence.model;
 
 public interface Aktivitaet {
-    long frist();
 
-    boolean status();
+    public long getFrist();
 
-    String typ();
 
-    int MitarbeiterNr();
+    public boolean getStatus();
 
-    int kundenNr();
 
-    int aktNr();
+    public String getTyp();
+
+    public int getMitarbeiterNr();
+
+
+    public int getPersonID();
+
+
+    public int getAktNr();
+    public String getNotiz();
 }

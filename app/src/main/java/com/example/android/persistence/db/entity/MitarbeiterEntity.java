@@ -57,11 +57,11 @@ import com.example.android.persistence.model.Product;
 
         }
 
+
         @Override
         public int getPersonId() {
             return personID;
         }
-
         @Override
         public int getMitarbeiterNr() {
             return mitarbeiterNr;
