@@ -141,6 +141,9 @@ public abstract class AppDatabase extends RoomDatabase {
 
            // database.execSQL("CREATE VIRTUAL TABLE IF NOT EXISTS `productsFts` USING FTS4("
             //    + "`name` TEXT, `description` TEXT, content=`products`)");
+            // original BasicSample-code:
+            //            database.execSQL("INSERT INTO productsFts (`rowid`, `name`, `description`) "
+            //                + "SELECT `id`, `name`, `description` FROM products");
             database.execSQL("INSERT INTO productsFts (`rowid`, `name`, `description`) "
                 + "SELECT `id`, `name`, `description` FROM products");
 
