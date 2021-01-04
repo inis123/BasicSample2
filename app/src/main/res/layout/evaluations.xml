@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/imageButton21"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/pfad_3"
+        tools:layout_editor_absoluteX="-2dp"
+        tools:layout_editor_absoluteY="649dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton22"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/bild_3"
+        tools:layout_editor_absoluteX="165dp"
+        tools:layout_editor_absoluteY="649dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton23"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/bild_4"
+        tools:layout_editor_absoluteX="245dp"
+        tools:layout_editor_absoluteY="649dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton24"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/bild_7"
+        tools:layout_editor_absoluteX="78dp"
+        tools:layout_editor_absoluteY="649dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton25"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/bild_8"
+        tools:layout_editor_absoluteX="325dp"
+        tools:layout_editor_absoluteY="649dp" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="239dp"
+        android:layout_height="36dp"
+        android:text="Gesamtunternehmen"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="103dp"
+        tools:layout_editor_absoluteY="103dp" />
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="108dp"
+        android:layout_height="83dp"
+        app:srcCompat="@drawable/bild_11"
+        tools:layout_editor_absoluteX="305dp"
+        tools:layout_editor_absoluteY="-2dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/bild_31"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="93dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
