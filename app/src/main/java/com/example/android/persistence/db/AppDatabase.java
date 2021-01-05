@@ -29,17 +29,35 @@ import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 import com.example.android.persistence.AppExecutors;
 import com.example.android.persistence.db.converter.DateConverter;
+import com.example.android.persistence.db.dao.AdressDao;
 import com.example.android.persistence.db.dao.CommentDao;
+import com.example.android.persistence.db.dao.InteressentDao;
 import com.example.android.persistence.db.dao.KundenDao;
+import com.example.android.persistence.db.dao.MitarbeiterDao;
+import com.example.android.persistence.db.dao.OpportiunityDao;
+import com.example.android.persistence.db.dao.PersonDao;
 import com.example.android.persistence.db.dao.ProductDao;
+import com.example.android.persistence.db.dao.TerminDao;
+import com.example.android.persistence.db.dao.VertragDao;
+import com.example.android.persistence.db.entity.AdressEntity;
+import com.example.android.persistence.db.entity.AktivitaetEntity;
 import com.example.android.persistence.db.entity.CommentEntity;
+import com.example.android.persistence.db.entity.InteressentEntity;
 import com.example.android.persistence.db.entity.KundenEntity;
+import com.example.android.persistence.db.entity.MitarbeiterEntity;
+import com.example.android.persistence.db.entity.OpportunityEntity;
+import com.example.android.persistence.db.entity.PersonEntity;
 import com.example.android.persistence.db.entity.ProductEntity;
 
 import com.example.android.persistence.db.entity.ProductFtsEntity;
+import com.example.android.persistence.db.entity.TerminEntity;
+import com.example.android.persistence.db.entity.VertragEntity;
+import com.example.android.persistence.model.Interessent;
+
 import java.util.List;
 
-@Database(entities = {ProductEntity.class, ProductFtsEntity.class, CommentEntity.class, KundenEntity.class}, version = 2)
+@Database(entities = {ProductEntity.class, ProductFtsEntity.class, CommentEntity.class, KundenEntity.class, AdressEntity.class, AktivitaetEntity.class,
+        CommentEntity.class, InteressentEntity.class, MitarbeiterEntity.class, OpportunityEntity.class, PersonEntity.class, TerminEntity.class, VertragEntity.class,}, version = 2)
 @TypeConverters(DateConverter.class)
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -53,6 +71,21 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract KundenDao  kundenDao();
 
     public abstract CommentDao commentDao();
+
+    public abstract AdressDao adressDao();
+
+    public abstract InteressentDao interessentDao();
+
+    public abstract MitarbeiterDao mitarbeiterDao();
+
+    public abstract OpportiunityDao opportiunityDao();
+
+    public abstract PersonDao personDao();
+
+    public abstract TerminDao terminDao();
+
+    public abstract VertragDao vertragDao();
+
 
     private final MutableLiveData<Boolean> mIsDatabaseCreated = new MutableLiveData<>();
 
@@ -74,7 +107,7 @@ public abstract class AppDatabase extends RoomDatabase {
      * The SQLite database is only created when it's accessed for the first time.
      */
     private static AppDatabase buildDatabase(final Context appContext,
-            final AppExecutors executors) {
+                                             final AppExecutors executors) {
         return Room.databaseBuilder(appContext, AppDatabase.class, DATABASE_NAME)
                 .addCallback(new Callback() {
                     @Override
@@ -97,8 +130,8 @@ public abstract class AppDatabase extends RoomDatabase {
                         });
                     }
                 })
-            .addMigrations(MIGRATION_1_2)
-            .build();
+                .addMigrations(MIGRATION_1_2)
+                .build();
     }
 
     /**
@@ -115,7 +148,7 @@ public abstract class AppDatabase extends RoomDatabase {
     }
 
     private static void insertData(final AppDatabase database, final List<ProductEntity> products,
-            final List<CommentEntity> comments, final List<KundenEntity> kunden) {
+                                   final List<CommentEntity> comments, final List<KundenEntity> kunden) {
         database.runInTransaction(() -> {
             database.productDao().insertAll(products);
             database.commentDao().insertAll(comments);
@@ -139,13 +172,13 @@ public abstract class AppDatabase extends RoomDatabase {
         @Override
         public void migrate(@NonNull SupportSQLiteDatabase database) {
 
-           // database.execSQL("CREATE VIRTUAL TABLE IF NOT EXISTS `productsFts` USING FTS4("
+            // database.execSQL("CREATE VIRTUAL TABLE IF NOT EXISTS `productsFts` USING FTS4("
             //    + "`name` TEXT, `description` TEXT, content=`products`)");
             // original BasicSample-code:
             //            database.execSQL("INSERT INTO productsFts (`rowid`, `name`, `description`) "
             //                + "SELECT `id`, `name`, `description` FROM products");
             database.execSQL("INSERT INTO productsFts (`rowid`, `name`, `description`) "
-                + "SELECT `id`, `name`, `description` FROM products");
+                    + "SELECT `id`, `name`, `description` FROM products");
 
         }
     };
