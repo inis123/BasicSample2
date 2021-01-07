@@ -16,10 +16,9 @@
 
 package com.example.android.persistence.db;
 
-import com.example.android.persistence.db.entity.CommentEntity;
 import com.example.android.persistence.db.entity.KundenEntity;
-import com.example.android.persistence.db.entity.ProductEntity;
-import com.example.android.persistence.model.Product;
+import com.example.android.persistence.db.entity.MitarbeiterEntity;
+import com.example.android.persistence.db.entity.PersonEntity;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -57,8 +56,35 @@ public class DataGenerator {
         }
         return kunde;
     }
+    public static List<PersonEntity> generatePerson() {
+        List<PersonEntity> person = new ArrayList<>(5);
+                PersonEntity pe=new PersonEntity();
+                pe.setAdressID(1);
+                pe.setAlter(1);
+                pe.setId(1);
+                pe.setNachname("Huber");
+                pe.setName("Franz");
+                pe.setPersonID(1);
+                person.add(pe);
 
 
+                person.add(new PersonEntity( "User", "User", 41,2));
+                person.add(new PersonEntity( "Alex", "Dushke", 23,3));
+                person.add(new PersonEntity( "Markus", "Muster", 41,4));
+
+        return person;
+    }
+    public static List<MitarbeiterEntity> generateMitarbeiter() {
+        List<MitarbeiterEntity> mitarbeiter = new ArrayList<>(5);
+
+        mitarbeiter.add(new MitarbeiterEntity( 1,1,"1234"));
+        mitarbeiter.add(new MitarbeiterEntity( 2, 2, "123"));
+        mitarbeiter.add(new MitarbeiterEntity( 3, 3,"passwd"));
+        mitarbeiter.add(new MitarbeiterEntity( 4, 4, "password"));
+
+        return mitarbeiter;
+    }
+/*
     public static List<ProductEntity> generateProducts() {
         List<ProductEntity> products = new ArrayList<>(FIRST.length * SECOND.length);
         Random rnd = new Random();
@@ -93,5 +119,5 @@ public class DataGenerator {
         }
 
         return comments;
-    }
+    }*/
 }

@@ -7,4 +7,5 @@ public interface Opportunity {
     public String getNotiz();
     public String getStatus();
     public int getInteressentID();
+    public int getMitarbeiterNr();
 }

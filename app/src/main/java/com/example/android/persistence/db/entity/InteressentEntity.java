@@ -60,4 +60,20 @@ import com.example.android.persistence.model.Interessent;
         public int getPersonID() {
             return personID;
         }
+
+        public void setInteressentID(int interessentID) {
+            this.interessentID = interessentID;
+        }
+
+        public void setNotiz(String notiz) {
+            this.notiz = notiz;
+        }
+
+        public void setStellung(String stellung) {
+            Stellung = stellung;
+        }
+
+        public void setPersonID(int personID) {
+            this.personID = personID;
+        }
     }

@@ -93,6 +93,40 @@ import com.example.android.persistence.model.Adresse;
         public String getOrt() {
             return Ort;
         }
+
+        @Override
+        public int getAdressID() {
+            return adressID;
+        }
+
+        public void setAdressID(int adressID) {
+            this.adressID = adressID;
+        }
+
+        public void setPersonID(int personID) {
+            this.personID = personID;
+        }
+
+        public void setOrt(String ort) {
+            Ort = ort;
+        }
+
+        public void setStrasse(String strasse) {
+            Strasse = strasse;
+        }
+
+        public void setStrassennummer(String strassennummer) {
+            Strassennummer = strassennummer;
+        }
+
+        public void setLand(String land) {
+            Land = land;
+        }
+
+        public void setPlz(String plz) {
+            this.plz = plz;
+        }
+
     }
 
 

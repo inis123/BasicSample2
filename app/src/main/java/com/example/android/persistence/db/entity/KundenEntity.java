@@ -6,7 +6,6 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.example.android.persistence.model.Kunde;
-import com.example.android.persistence.model.Product;
 
 @Entity(tableName = "kunde",
         foreignKeys = {
@@ -24,43 +23,7 @@ public class KundenEntity implements Kunde {
         private int alter;
         private int personID;
 
-        @Override
-        public int getKundenID() {
-            return kundenID;
-        }
-         @Override
-        public int getPersonID() {
-        return personID;
-        }
 
-        public void setKundenID(int kundenID) {
-            this.kundenID = kundenID;
-        }
-
-        @Override
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getNachname() {
-            return nachname;
-        }
-
-        public void setNachname(String nachname) {
-            this.nachname = nachname;
-        }
-
-        public int getAlter() {
-            return alter;
-        }
-
-        public void setAlter(int alter) {
-            this.alter = alter;
-        }
 
         public KundenEntity() {
         }
@@ -88,5 +51,47 @@ public class KundenEntity implements Kunde {
             this.alter = kunde.getAlter();
             this.personID=kunde.getPersonID();
         }
+    @Override
+    public int getKundenID() {
+        return kundenID;
     }
+    @Override
+    public int getPersonID() {
+        return personID;
+    }
+
+    public void setKundenID(int kundenID) {
+        this.kundenID = kundenID;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getNachname() {
+        return nachname;
+    }
+
+    public void setNachname(String nachname) {
+        this.nachname = nachname;
+    }
+
+    public int getAlter() {
+        return alter;
+    }
+
+    public void setAlter(int alter) {
+        this.alter = alter;
+    }
+
+
+    public void setPersonID(int personID) {
+        this.personID = personID;
+    }
+}
 

@@ -8,7 +8,6 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.android.persistence.db.entity.AdressEntity;
-import com.example.android.persistence.db.entity.CommentEntity;
 import com.example.android.persistence.db.entity.PersonEntity;
 
 import java.util.List;

@@ -1,24 +1,14 @@
 package com.example.android.persistence.db.entity;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-import com.example.android.persistence.model.Kunde;
 import com.example.android.persistence.model.Mitarbeiter;
 
-
-
-import androidx.room.Entity;
-import androidx.room.Ignore;
-import androidx.room.PrimaryKey;
-
-import com.example.android.persistence.db.dao.KundenDao;
-import com.example.android.persistence.model.Kunde;
-import com.example.android.persistence.model.Product;
-
-    @Entity(tableName = "mitarbeiter",
+@Entity(tableName = "mitarbeiter",
             foreignKeys = {
                     @ForeignKey(entity = PersonEntity.class,
                             parentColumns = "personID",
@@ -29,7 +19,9 @@ import com.example.android.persistence.model.Product;
         @PrimaryKey(autoGenerate = true)
         private int mitarbeiterNr;
 
+        @ColumnInfo(name="personID")
         private int personID;
+        @ColumnInfo(name="password")
         private String password;
 
 
@@ -49,13 +41,13 @@ import com.example.android.persistence.model.Product;
             this.password=password;
 
         }
-
+       /* @Ignore
         public MitarbeiterEntity(Mitarbeiter mitarbeiter) {
             this.personID = mitarbeiter.getPersonId();
             this.mitarbeiterNr = mitarbeiter.getMitarbeiterNr();
             this.password=mitarbeiter.getPassword();
 
-        }
+        }*/
 
 
         @Override
@@ -69,6 +61,22 @@ import com.example.android.persistence.model.Product;
         @Override
         public String getPassword() {
             return password;
+        }
+        @Override
+        public int getPersonID() {
+            return personID;
+        }
+
+        public void setMitarbeiterNr(int mitarbeiterNr) {
+            this.mitarbeiterNr = mitarbeiterNr;
+        }
+
+        public void setPersonID(int personID) {
+            this.personID = personID;
+        }
+
+        public void setPassword(String password) {
+            this.password = password;
         }
     }
 

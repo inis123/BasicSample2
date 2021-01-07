@@ -1,7 +1,7 @@
 package com.example.android.persistence.ui;
-import com.example.android.persistence.R;
-import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
+import com.example.android.persistence.R;
 import android.os.Bundle;
 
 public class signup extends AppCompatActivity {

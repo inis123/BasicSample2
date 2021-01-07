@@ -25,12 +25,21 @@ import com.example.android.persistence.db.AppDatabase;
 public class BasicApp extends Application  {
 
     private AppExecutors mAppExecutors;
+    private static BasicApp bapp;
 
+    public static void createBasicApp(BasicApp app){
+        BasicApp.bapp=app;
+
+    }
     @Override
     public void onCreate() {
         super.onCreate();
 
         mAppExecutors = new AppExecutors();
+        createBasicApp(this);
+    }
+    public static BasicApp getBasicApp(){
+        return bapp;
     }
 
     public AppDatabase getDatabase() {
@@ -39,5 +48,9 @@ public class BasicApp extends Application  {
 
     public DataRepository getRepository() {
         return DataRepository.getInstance(getDatabase());
+    }
+
+    public static DataRepository getAkRepository() {
+        return DataRepository.getInstance(bapp.getDatabase());
     }
 }

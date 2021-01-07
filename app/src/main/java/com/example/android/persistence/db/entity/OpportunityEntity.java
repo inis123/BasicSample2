@@ -11,7 +11,7 @@ import com.example.android.persistence.model.Opportunity;
                         parentColumns = "interessentID",
                         childColumns = "interessentID",
                         onDelete = ForeignKey.CASCADE),
-                @ForeignKey(entity = InteressentEntity.class,
+                @ForeignKey(entity = MitarbeiterEntity.class,
                         parentColumns = "mitarbeiterNr",
                         childColumns = "mitarbeiterNr",
                         onDelete = ForeignKey.CASCADE)})
@@ -80,5 +80,37 @@ public class OpportunityEntity implements Opportunity {
     @Override
     public int getInteressentID() {
         return interessentID;
+    }
+    @Override
+    public int getMitarbeiterNr() {
+        return mitarbeiterNr;
+    }
+
+    public void setOppNR(int oppNR) {
+        this.oppNR = oppNR;
+    }
+
+    public void setInteressentID(int interessentID) {
+        this.interessentID = interessentID;
+    }
+
+    public void setMitarbeiterNr(int mitarbeiterNr) {
+        this.mitarbeiterNr = mitarbeiterNr;
+    }
+
+    public void setGeschaetzterWert(int geschaetzterWert) {
+        this.geschaetzterWert = geschaetzterWert;
+    }
+
+    public void setZeitrahmen(long zeitrahmen) {
+        this.zeitrahmen = zeitrahmen;
+    }
+
+    public void setNotiz(String notiz) {
+        this.notiz = notiz;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

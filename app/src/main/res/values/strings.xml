@@ -15,7 +15,7 @@
   -->
 
 <resources>
-    <string name="app_name">Persistence sample</string>
+    <string name="app_name">CRM APP</string>
     <string name="no_comments">No comments</string>
     <string name="loading_comments">Loading comments…</string>
     <string name="loading_products">Loading products…</string>
@@ -24,4 +24,26 @@
     <string name="cd_comments_list">Comments list</string>
     <string name="cd_product_name">Name of the product</string>
     <string name="cd_search_products">Search products</string>
+    <string name="title_activity_termine">termine</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="logo">logo</string>
+    <string name="home">Home</string>
+    <string name="kontaktbild">kontaktbild</string>
+    <string name="img_kontakte">img_kontakte</string>
+    <string name="img_home">img_home</string>
+    <string name="img_map">img_map</string>
+    <string name="img_search">img_search</string>
+    <string name="img_menu">img_menu</string>
+    <string name="pic_soloplanlogobig">pic_soloplanlogobig</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="name">Name</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="login">Login</string>
 </resources>

@@ -107,4 +107,32 @@ import com.example.android.persistence.model.Aktivitaet;
         public String getNotiz() {
             return notiz;
         }
+
+        public void setAktNr(int aktNr) {
+            this.aktNr = aktNr;
+        }
+
+        public void setPersonID(int personID) {
+            this.personID = personID;
+        }
+
+        public void setMitarbeiterNr(int mitarbeiterNr) {
+            this.mitarbeiterNr = mitarbeiterNr;
+        }
+
+        public void setTyp(String typ) {
+            this.typ = typ;
+        }
+
+        public void setNotiz(String notiz) {
+            this.notiz = notiz;
+        }
+
+        public void setStatus(boolean status) {
+            this.status = status;
+        }
+
+        public void setFrist(long frist) {
+            this.frist = frist;
+        }
     }

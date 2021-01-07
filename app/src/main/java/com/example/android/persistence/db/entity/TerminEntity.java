@@ -5,20 +5,10 @@ import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-import com.example.android.persistence.model.Person;
 
-
-
-import androidx.room.Entity;
-import androidx.room.Ignore;
-import androidx.room.PrimaryKey;
-
-import com.example.android.persistence.db.dao.KundenDao;
 import com.example.android.persistence.model.Termin;
-import com.example.android.persistence.model.Person;
-import com.example.android.persistence.model.Product;
 
-    @Entity(tableName = "termin",
+@Entity(tableName = "termin",
             foreignKeys = {
                     @ForeignKey(entity = PersonEntity.class,
                             parentColumns = "personID",
@@ -93,6 +83,30 @@ import com.example.android.persistence.model.Product;
         @Override
         public int terminNr() {
             return terminNr;
+        }
+
+        public void setTerminNr(int terminNr) {
+            this.terminNr = terminNr;
+        }
+
+        public void setMitarbeiterNr(int mitarbeiterNr) {
+            this.mitarbeiterNr = mitarbeiterNr;
+        }
+
+        public void setPersonID(int personID) {
+            this.personID = personID;
+        }
+
+        public void setDatum(long datum) {
+            this.datum = datum;
+        }
+
+        public void setBetreff(String betreff) {
+            this.betreff = betreff;
+        }
+
+        public void setNotiz(String notiz) {
+            this.notiz = notiz;
         }
     }
 

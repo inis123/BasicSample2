@@ -4,14 +4,13 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-import com.example.android.persistence.model.Mitarbeiter;
 import com.example.android.persistence.model.Vertrag;
 
 @Entity(tableName = "vertrag",
         foreignKeys = {
                 @ForeignKey(entity = MitarbeiterEntity.class,
-                        parentColumns = "mitarbeiterNR",
-                        childColumns = "mitarbeiterNR",
+                        parentColumns = "mitarbeiterNr",
+                        childColumns = "mitarbeiterNr",
                         onDelete = ForeignKey.CASCADE),
                 @ForeignKey(entity = KundenEntity.class,
                         parentColumns = "kundenID",
@@ -21,7 +20,7 @@ public class VertragEntity implements Vertrag {
     @PrimaryKey
     private int vertragsNR;
 
-    private int mitarbeiterNR;
+    private int mitarbeiterNr;
     private int kundenID;
     private long abschlussdatum;
     private String vertragsinhalt;
@@ -32,9 +31,9 @@ public class VertragEntity implements Vertrag {
     public VertragEntity() {
     }
 
-    public VertragEntity(int mitarbeiterNR, int kundenID, long abschlussdatum, String vertragsinhalt,
+    public VertragEntity(int mitarbeiterNr, int kundenID, long abschlussdatum, String vertragsinhalt,
                          int preis, String erfuellungsdatum, String status) {
-        this.mitarbeiterNR = mitarbeiterNR;
+        this.mitarbeiterNr = mitarbeiterNr;
         this.kundenID = kundenID;
         this.abschlussdatum = abschlussdatum;
         this.vertragsinhalt = vertragsinhalt;
@@ -43,10 +42,10 @@ public class VertragEntity implements Vertrag {
         this.status = status;
     }
 
-    public VertragEntity(int vertragsNR, int mitarbeiterNR, int kundenID, long abschlussdatum,
+    public VertragEntity(int vertragsNR, int mitarbeiterNr, int kundenID, long abschlussdatum,
                          String vertragsinhalt, int preis, String erfuellungsdatum, String status) {
         this.vertragsNR = vertragsNR;
-        this.mitarbeiterNR = mitarbeiterNR;
+        this.mitarbeiterNr = mitarbeiterNr;
         this.kundenID = kundenID;
         this.abschlussdatum = abschlussdatum;
         this.vertragsinhalt = vertragsinhalt;
@@ -56,7 +55,7 @@ public class VertragEntity implements Vertrag {
     }
     public VertragEntity(VertragEntity vertrag) {
         this.vertragsNR = vertrag.getVertragsNR();
-        this.mitarbeiterNR = vertrag.getMitarbeiterNR();
+        this.mitarbeiterNr = vertrag.getMitarbeiterNr();
         this.kundenID = vertrag.getKundenID();
         this.abschlussdatum = vertrag.getAbschlussdatum();
         this.vertragsinhalt = vertrag.getVertragsinhalt();
@@ -70,8 +69,8 @@ public class VertragEntity implements Vertrag {
     }
 
     @Override
-    public int getMitarbeiterNR() {
-        return mitarbeiterNR;
+    public int getMitarbeiterNr() {
+        return mitarbeiterNr;
     }
 
     @Override
@@ -102,5 +101,37 @@ public class VertragEntity implements Vertrag {
     @Override
     public String getStatus() {
         return status;
+    }
+
+    public void setVertragsNR(int vertragsNR) {
+        this.vertragsNR = vertragsNR;
+    }
+
+    public void setMitarbeiterNr(int mitarbeiterNr) {
+        this.mitarbeiterNr = mitarbeiterNr;
+    }
+
+    public void setKundenID(int kundenID) {
+        this.kundenID = kundenID;
+    }
+
+    public void setAbschlussdatum(long abschlussdatum) {
+        this.abschlussdatum = abschlussdatum;
+    }
+
+    public void setVertragsinhalt(String vertragsinhalt) {
+        this.vertragsinhalt = vertragsinhalt;
+    }
+
+    public void setPreis(int preis) {
+        this.preis = preis;
+    }
+
+    public void setErfuellungsdatum(String erfuellungsdatum) {
+        this.erfuellungsdatum = erfuellungsdatum;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

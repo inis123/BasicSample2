@@ -30,34 +30,28 @@ import androidx.annotation.VisibleForTesting;
 import com.example.android.persistence.AppExecutors;
 import com.example.android.persistence.db.converter.DateConverter;
 import com.example.android.persistence.db.dao.AdressDao;
-import com.example.android.persistence.db.dao.CommentDao;
 import com.example.android.persistence.db.dao.InteressentDao;
 import com.example.android.persistence.db.dao.KundenDao;
 import com.example.android.persistence.db.dao.MitarbeiterDao;
 import com.example.android.persistence.db.dao.OpportiunityDao;
 import com.example.android.persistence.db.dao.PersonDao;
-import com.example.android.persistence.db.dao.ProductDao;
 import com.example.android.persistence.db.dao.TerminDao;
 import com.example.android.persistence.db.dao.VertragDao;
 import com.example.android.persistence.db.entity.AdressEntity;
 import com.example.android.persistence.db.entity.AktivitaetEntity;
-import com.example.android.persistence.db.entity.CommentEntity;
 import com.example.android.persistence.db.entity.InteressentEntity;
 import com.example.android.persistence.db.entity.KundenEntity;
 import com.example.android.persistence.db.entity.MitarbeiterEntity;
 import com.example.android.persistence.db.entity.OpportunityEntity;
 import com.example.android.persistence.db.entity.PersonEntity;
-import com.example.android.persistence.db.entity.ProductEntity;
 
-import com.example.android.persistence.db.entity.ProductFtsEntity;
 import com.example.android.persistence.db.entity.TerminEntity;
 import com.example.android.persistence.db.entity.VertragEntity;
-import com.example.android.persistence.model.Interessent;
 
 import java.util.List;
 
-@Database(entities = {ProductEntity.class, ProductFtsEntity.class, CommentEntity.class, KundenEntity.class, AdressEntity.class, AktivitaetEntity.class,
-        CommentEntity.class, InteressentEntity.class, MitarbeiterEntity.class, OpportunityEntity.class, PersonEntity.class, TerminEntity.class, VertragEntity.class,}, version = 2)
+@Database(entities = {KundenEntity.class, AdressEntity.class, AktivitaetEntity.class,
+         InteressentEntity.class, MitarbeiterEntity.class, OpportunityEntity.class, PersonEntity.class, TerminEntity.class, VertragEntity.class,}, version = 2)
 @TypeConverters(DateConverter.class)
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -66,11 +60,11 @@ public abstract class AppDatabase extends RoomDatabase {
     @VisibleForTesting
     public static final String DATABASE_NAME = "basic-sample-db";
 
-    public abstract ProductDao productDao();
+
 
     public abstract KundenDao  kundenDao();
 
-    public abstract CommentDao commentDao();
+
 
     public abstract AdressDao adressDao();
 
@@ -98,6 +92,7 @@ public abstract class AppDatabase extends RoomDatabase {
                 }
             }
         }
+        com.example.android.persistence.ui.login.de("getinstance");
         return sInstance;
     }
 
@@ -115,16 +110,19 @@ public abstract class AppDatabase extends RoomDatabase {
                         super.onCreate(db);
                         executors.diskIO().execute(() -> {
                             // Add a delay to simulate a long-running operation
-                            addDelay();
+                            //addDelay();
                             // Generate the data for pre-population
                             AppDatabase database = AppDatabase.getInstance(appContext, executors);
 
-                            List<KundenEntity> kunden = DataGenerator.generateKunden();
-                            List<ProductEntity> products = DataGenerator.generateProducts();
-                            List<CommentEntity> comments =
-                                    DataGenerator.generateCommentsForProducts(products);
+                            List<PersonEntity> person = DataGenerator.generatePerson();
+                            List<MitarbeiterEntity> mitarbeiter= DataGenerator.generateMitarbeiter();
+                            insertData(database, person,mitarbeiter);
+                            //List<KundenEntity> kunden = DataGenerator.generateKunden();
+                            //List<ProductEntity> products = DataGenerator.generateProducts();
+                            //List<CommentEntity> comments =
+                             //       DataGenerator.generateCommentsForProducts(products);
 
-                            insertData(database, products, comments,kunden);
+                           // insertData(database, products, comments,kunden);
                             // notify that the database was created and it's ready to be used
                             database.setDatabaseCreated();
                         });
@@ -147,7 +145,15 @@ public abstract class AppDatabase extends RoomDatabase {
         mIsDatabaseCreated.postValue(true);
     }
 
-    private static void insertData(final AppDatabase database, final List<ProductEntity> products,
+    private static void insertData(final AppDatabase database, final List<PersonEntity> person,final List<MitarbeiterEntity> mitarbeiter) {
+        database.runInTransaction(() -> {
+
+            database.personDao().insertAll(person);
+            database.mitarbeiterDao().insertAll(mitarbeiter);
+        });
+    }
+
+   /* private static void insertData(final AppDatabase database, final List<ProductEntity> products,
                                    final List<CommentEntity> comments, final List<KundenEntity> kunden) {
         database.runInTransaction(() -> {
             database.productDao().insertAll(products);
@@ -155,7 +161,7 @@ public abstract class AppDatabase extends RoomDatabase {
             database.kundenDao().insertAll(kunden);
         });
     }
-
+*/
     private static void addDelay() {
         try {
             Thread.sleep(4000);

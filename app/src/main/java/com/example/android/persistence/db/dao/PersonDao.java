@@ -9,6 +9,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.android.persistence.db.entity.KundenEntity;
+import com.example.android.persistence.db.entity.MitarbeiterEntity;
 import com.example.android.persistence.db.entity.PersonEntity;
 
 
@@ -28,6 +29,8 @@ public interface PersonDao {
     void update(PersonEntity person);
     @Update
     void updateAll(List<PersonEntity> person);
+    @Query("SELECT * FROM person p, mitarbeiter m WHERE (p.personID==m.personID AND p.name == :name) ")
+    LiveData<MitarbeiterEntity> getMitarbeiterbyName(String name);
 
 
 

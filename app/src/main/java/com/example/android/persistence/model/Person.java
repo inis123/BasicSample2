@@ -1,11 +1,15 @@
 package com.example.android.persistence.model;
 
 public interface Person {
-    String getName();
+    public String getName();
 
-    int getPersonId();
+    public int getPersonId();
 
-    String getNachname();
+    public String getNachname();
 
-    int getAlter();
+    public int getAlter();
+
+    public int getAdressID();
+
+    public int getPersonID();
 }

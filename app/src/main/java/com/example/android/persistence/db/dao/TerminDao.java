@@ -26,6 +26,6 @@ public interface TerminDao {
     @Delete
     void delete(TerminEntity termin);
 
-    @Query("SELECT * FROM person p  WHERE EXISTS(SELECT * FROM termin i WHERE p.personID==i.personID) ")
-    PersonEntity getPerson(TerminEntity termin);
+    //@Query("SELECT * FROM person p  WHERE EXISTS(SELECT * FROM termin i WHERE p.personID==i.personID) ")
+    //PersonEntity getPerson(TerminEntity termin);
 }

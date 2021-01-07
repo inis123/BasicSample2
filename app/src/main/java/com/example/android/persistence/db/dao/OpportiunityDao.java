@@ -23,6 +23,6 @@ public interface OpportiunityDao {
     void delete(OpportunityEntity opportunity);
     @Update
     void update(OpportunityEntity opportunity);
-    @Query("SELECT * FROM person p  WHERE EXISTS(SELECT * FROM opportunity o WHERE p.personID==o.interessentID) ")
-    PersonEntity getPerson(OpportunityEntity opp);
+    //@Query("SELECT * FROM person p  WHERE EXISTS(SELECT * FROM opportunity o WHERE p.personID==o.interessentID) ")
+    //PersonEntity getPerson(OpportunityEntity opp);
 }
