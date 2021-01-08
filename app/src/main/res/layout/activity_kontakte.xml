@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.kontakte">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="431dp"
+        android:layout_height="79dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/textView_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.47"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="101dp"
+            android:layout_height="89dp"
+
+            android:contentDescription="@string/logo"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.83"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+            app:layout_constraintVertical_bias="0.79"
+            app:srcCompat="@drawable/bild_11" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="400dp"
+        android:layout_height="500dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/ScrollViewButton1"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:background="#F7F7F7"
+                android:text="Präzisionstechnik GmbH"
+                android:textSize="25sp"
+                tools:layout_editor_absoluteX="50dp"
+                tools:layout_editor_absoluteY="0dp" />
+
+            <Button
+                android:id="@+id/ScrollViewButton2"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:background="#F7F7F7"
+                android:text="Spedition GmbH"
+                android:textSize="25sp"
+                tools:layout_editor_absoluteX="50dp"
+                tools:layout_editor_absoluteY="0dp" />
+
+            <Button
+                android:id="@+id/ScrollViewButton3"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:background="#F7F7F7"
+                android:text="Logistik GmbH"
+                android:textSize="25sp"
+                tools:layout_editor_absoluteX="50dp"
+                tools:layout_editor_absoluteY="0dp" />
+
+            <Button
+                android:id="@+id/ScrollViewButton4"
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:background="#F7F7F7"
+                android:text="Dachser SE"
+                android:textSize="25sp"
+                tools:layout_editor_absoluteX="50dp"
+                tools:layout_editor_absoluteY="0dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="create+"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.836"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.411" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Favoriten"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toStartOf="@+id/button9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="425dp"
+        android:layout_height="88dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <ImageButton
+            android:id="@+id/kontakteButton"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:contentDescription="@string/img_kontakte"
+
+            app:srcCompat="@drawable/komponente_4__9" />
+
+        <ImageButton
+            android:id="@+id/homeButton"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:contentDescription="@string/img_home"
+
+            app:srcCompat="@drawable/komponente_310" />
+
+        <ImageButton
+
+            android:id="@+id/mapsButton"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:contentDescription="@string/img_map"
+
+            app:srcCompat="@drawable/komponente_59" />
+
+        <ImageButton
+            android:id="@+id/searchButton"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:contentDescription="@string/img_search"
+
+            app:srcCompat="@drawable/komponente_62" />
+
+        <ImageButton
+            android:id="@+id/menuButton"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:contentDescription="@string/img_menu"
+
+            app:srcCompat="@drawable/komponente_2_9" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
