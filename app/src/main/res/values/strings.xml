@@ -46,4 +46,17 @@
     <string name="name">Name</string>
     <string name="enter_password">Enter Password</string>
     <string name="login">Login</string>
+    <string name="leads">leads</string>
+    <string name="leads_near_me">leads_near_me</string>
+    <string name="searchbutton">searchButton</string>
+
+    <string name="logosoloplan">LogoSoloplan</string>
+    <string name="upbutton">upbutton</string>
+    <string name="textview">textview</string>
+    <string name="add">+</string>
+
+    <string name="gesamtunternehmen">Gesamtunternehmen</string>
+    <string name="backbutton">backButton</string>
+    <string name="mitarbeiterweise">Mitarbeiterweise</string>
+    <string name="kundenweise">Kundenweise</string>
 </resources>

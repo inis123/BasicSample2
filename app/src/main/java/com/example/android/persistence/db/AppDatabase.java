@@ -49,6 +49,8 @@ import com.example.android.persistence.db.entity.TerminEntity;
 import com.example.android.persistence.db.entity.VertragEntity;
 
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @Database(entities = {KundenEntity.class, AdressEntity.class, AktivitaetEntity.class,
          InteressentEntity.class, MitarbeiterEntity.class, OpportunityEntity.class, PersonEntity.class, TerminEntity.class, VertragEntity.class,}, version = 2)
@@ -63,23 +65,17 @@ public abstract class AppDatabase extends RoomDatabase {
 
 
     public abstract KundenDao  kundenDao();
-
-
-
     public abstract AdressDao adressDao();
-
     public abstract InteressentDao interessentDao();
-
     public abstract MitarbeiterDao mitarbeiterDao();
-
     public abstract OpportiunityDao opportiunityDao();
-
     public abstract PersonDao personDao();
-
     public abstract TerminDao terminDao();
-
     public abstract VertragDao vertragDao();
 
+    private static final int NUMBER_OF_THREADS = 4;
+    static final ExecutorService Executor =
+            Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
     private final MutableLiveData<Boolean> mIsDatabaseCreated = new MutableLiveData<>();
 

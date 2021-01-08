@@ -78,7 +78,7 @@ public class DataGenerator {
         List<MitarbeiterEntity> mitarbeiter = new ArrayList<>(5);
 
         mitarbeiter.add(new MitarbeiterEntity( 1,1,"1234"));
-        mitarbeiter.add(new MitarbeiterEntity( 2, 2, "123"));
+        mitarbeiter.add(new MitarbeiterEntity( 2, 2, "lol"));
         mitarbeiter.add(new MitarbeiterEntity( 3, 3,"passwd"));
         mitarbeiter.add(new MitarbeiterEntity( 4, 4, "password"));
 

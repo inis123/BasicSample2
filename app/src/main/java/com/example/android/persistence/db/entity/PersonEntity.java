@@ -46,7 +46,7 @@ public class PersonEntity implements Person {
     }
     @Ignore
     public PersonEntity(Person person) {
-        this.personID = person.getPersonId();
+        this.personID = person.getPersonID();
         this.name = person.getName();
         this.nachname = person.getNachname();
         this.alter = person.getAlter();
@@ -58,10 +58,6 @@ public class PersonEntity implements Person {
     @Override
     public String getName() {
         return name;
-    }
-    @Override
-    public int getPersonId() {
-        return personID;
     }
     @Override
     public String getNachname() {

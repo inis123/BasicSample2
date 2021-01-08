@@ -3,7 +3,7 @@ package com.example.android.persistence.model;
 public interface Person {
     public String getName();
 
-    public int getPersonId();
+
 
     public String getNachname();
 
