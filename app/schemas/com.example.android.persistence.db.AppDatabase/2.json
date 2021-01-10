@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 2,
-    "identityHash": "93e3d1c088cc82848ceaf6071ae73159",
+    "identityHash": "b9dd6ad841a05336bf89a103a344279c",
     "entities": [
       {
         "tableName": "kunde",
@@ -62,7 +62,7 @@
       },
       {
         "tableName": "adresse",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`adressID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `personID` INTEGER NOT NULL, `Ort` TEXT, `Strasse` TEXT, `Strassennummer` TEXT, `Land` TEXT, `plz` TEXT, FOREIGN KEY(`personID`) REFERENCES `person`(`personID`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`adressID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `personID` INTEGER NOT NULL, `Ort` TEXT, `Strasse` TEXT, `Hausnummer` TEXT, `Land` TEXT, `plz` TEXT, `mTelNr` TEXT, `telNr` TEXT, FOREIGN KEY(`personID`) REFERENCES `person`(`personID`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "adressID",
@@ -89,8 +89,8 @@
             "notNull": false
           },
           {
-            "fieldPath": "Strassennummer",
-            "columnName": "Strassennummer",
+            "fieldPath": "Hausnummer",
+            "columnName": "Hausnummer",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -103,6 +103,18 @@
           {
             "fieldPath": "plz",
             "columnName": "plz",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mTelNr",
+            "columnName": "mTelNr",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "telNr",
+            "columnName": "telNr",
             "affinity": "TEXT",
             "notNull": false
           }
@@ -586,7 +598,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '93e3d1c088cc82848ceaf6071ae73159')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b9dd6ad841a05336bf89a103a344279c')"
     ]
   }
 }

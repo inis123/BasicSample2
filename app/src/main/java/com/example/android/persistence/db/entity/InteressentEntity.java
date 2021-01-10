@@ -2,6 +2,7 @@ package com.example.android.persistence.db.entity;
 
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.example.android.persistence.model.Interessent;
@@ -24,20 +25,26 @@ import com.example.android.persistence.model.Interessent;
         private int personID;
         public InteressentEntity(){}
 
-
+        @Ignore
         public InteressentEntity(int interessentID, String notiz, String Stellung, int personID) {
             this.interessentID = interessentID;
             this.notiz = notiz;
             this.Stellung = Stellung;
             this.personID=personID;
         }
-
+        @Ignore
         public InteressentEntity(String notiz, String Stellung, int personID) {
             this.notiz = notiz;
             this.Stellung = Stellung;
             this.personID=personID;
         }
+        @Ignore
+        public InteressentEntity(String notiz, String Stellung) {
+            this.notiz = notiz;
+            this.Stellung = Stellung;
 
+        }
+        @Ignore
         public InteressentEntity(Interessent interessent) {
             this.interessentID = interessent.getInteressentID();
             this.notiz = interessent.getNotiz();

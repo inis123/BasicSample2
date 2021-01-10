@@ -30,34 +30,70 @@ import com.example.android.persistence.model.Adresse;
         private int personID;
         private String Ort;
         private String Strasse;
-        private String Strassennummer;
+        private String Hausnummer;
         private String Land;
         private String plz;
-
+        private String mTelNr;
+        private String telNr;
 
         public AdressEntity() {
         }
 
         @Ignore
-        public AdressEntity( int adressID, String Ort, String Strasse,  String Strassennummer, String Land,String plz,int personID) {
+            public AdressEntity(int adressID, int personID, String ort, String strasse, String hausnummer, String land, String plz, String mTelNr, String telNr) {
             this.adressID = adressID;
-            this.Ort = Ort;
-            this.Strasse = Strasse;
-            this.Strassennummer = Strassennummer;
-            this.Land=Land;
-            this.plz=plz;
-            this.personID=personID;
+            this.personID = personID;
+            Ort = ort;
+            Strasse = strasse;
+            Hausnummer = hausnummer;
+            Land = land;
+            this.plz = plz;
+            this.mTelNr = mTelNr;
+            this.telNr = telNr;
+        }
+        @Ignore
+        public AdressEntity(int personID, String ort, String strasse, String hausnummer, String land, String plz, String mTelNr, String telNr) {
+            this.personID = personID;
+            Ort = ort;
+            Strasse = strasse;
+            Hausnummer = hausnummer;
+            Land = land;
+            this.plz = plz;
+            this.mTelNr = mTelNr;
+            this.telNr = telNr;
+        }
+        @Ignore
+        public AdressEntity( String ort, String strasse, String hausnummer, String land, String plz, String mTelNr, String telNr) {
+
+            Ort = ort;
+            Strasse = strasse;
+            Hausnummer = hausnummer;
+            Land = land;
+            this.plz = plz;
+            this.mTelNr = mTelNr;
+            this.telNr = telNr;
         }
 
+
+
+        @Ignore
         public AdressEntity(Adresse adresse) {
             this.adressID = adresse.getAdressId();
             this.Ort= adresse.getOrt();
             this.Strasse=adresse.getStrasse();
-            this.Strassennummer = adresse.getStrassennummer();
+            this.Hausnummer = adresse.getHausnummer();
             this.Land = adresse.getLand();
             this.plz=adresse.getPlz();
             this.personID=adresse.getPersonID();
 
+        }
+        @Override
+        public String getmTelNr() {
+            return mTelNr;
+        }
+        @Override
+        public String getTelNr() {
+            return telNr;
         }
 
         @Override
@@ -80,8 +116,8 @@ import com.example.android.persistence.model.Adresse;
         }
 
         @Override
-        public String getStrassennummer() {
-            return Strassennummer;
+        public String getHausnummer() {
+            return Hausnummer;
         }
 
         @Override
@@ -115,8 +151,8 @@ import com.example.android.persistence.model.Adresse;
             Strasse = strasse;
         }
 
-        public void setStrassennummer(String strassennummer) {
-            Strassennummer = strassennummer;
+        public void setHausnummer(String hausnummer) {
+            Hausnummer = hausnummer;
         }
 
         public void setLand(String land) {
@@ -127,6 +163,13 @@ import com.example.android.persistence.model.Adresse;
             this.plz = plz;
         }
 
+        public void setmTelNr(String mTelNr) {
+            this.mTelNr = mTelNr;
+        }
+
+        public void setTelNr(String telNr) {
+            this.telNr = telNr;
+        }
     }
 
 

@@ -32,7 +32,7 @@ public class Datahold {
 
 
     public MitarbeiterEntity getMitarbeiterByName(String name){
-        login.de(name);
+
         for (PersonEntity pe:person) {
             if(pe.getName().equals(name))
                 for (MitarbeiterEntity me:mitarbeiter ) {

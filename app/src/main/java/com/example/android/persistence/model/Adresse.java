@@ -7,12 +7,14 @@ public interface Adresse {
 
     String getLand();
 
-    String getStrassennummer();
+    String getHausnummer();
 
     String getStrasse();
 
     String getOrt();
 
     int getPersonID();
-    public int getAdressID();
+    int getAdressID();
+    String getTelNr();
+     String getmTelNr();
 }

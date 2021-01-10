@@ -3,7 +3,7 @@ package com.example.android.persistence.ui;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 
-import com.example.android.persistence.BasicApp;
+//import com.example.android.persistence.BasicApp;
 import com.example.android.persistence.db.AppDatabase;
 import com.example.android.persistence.db.Datahold;
 import com.example.android.persistence.db.dao.PersonDao;
@@ -20,16 +20,15 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import java.util.List;
 
 public class login extends AppCompatActivity {
-    public static login lg;
-    private Datahold dh;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        lg = this;
+
+
 
 
         Button login = (Button) findViewById(R.id.loginButton);
@@ -37,30 +36,31 @@ public class login extends AppCompatActivity {
 
         login.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                TextView status=findViewById(R.id.statusField);
+
                 EditText name = (EditText) findViewById(R.id.EnterNameField);
                 EditText password = (EditText) findViewById(R.id.enterPasswordField);
+                switch(loginViewModel.checkLogin(getApplicationContext(),name.getText().toString(),password.getText().toString())){
+                    case 0:
+                           status.setText("Username incorrect");
+                           break;
+                    case 1:
+                            status.setText("permission required");
+                            break;
+                    case 2:
+                            status.setText("success");
+                            startActivity(new Intent(getApplicationContext(), home.class));
+                            break;
+                    case 3:
+                            status.setText("password incorrect");
+                            break;
+                }
 
-                /*try {
-                    if (new loginViewModel.checkLogin(name.getText().toString(), password.getText().toString()))
-                        startActivity(new Intent(login.this, home.class));
-
-
-                } catch (Exception ncf) {
-                    setDebug(ncf.getMessage());
-                }*/
             }
         });
 
     }
-    public void setDebug(String a){
-        TextView debug=(TextView) findViewById(R.id.debug) ;
-        String tmp= debug.getText().toString();
-        debug.setText(tmp+"/n"+a);
-    }
-    public static void de(String a){
-        lg.setDebug(a);
 
-    }
 
 
 

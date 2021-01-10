@@ -30,7 +30,9 @@ public interface PersonDao {
     @Update
     void updateAll(List<PersonEntity> person);
     @Query("SELECT m.password,m.personID,m.mitarbeiterNr FROM person p, mitarbeiter m WHERE (p.personID==m.personID AND p.name == :name) ")
-    LiveData<MitarbeiterEntity> getMitarbeiterbyName(String name);
+    List<MitarbeiterEntity> getMitarbeiterbyName(String name);
+    @Query("SELECT * FROM person p WHERE p.name=:name")
+    List<PersonEntity> getByName(String name);
 
 
 

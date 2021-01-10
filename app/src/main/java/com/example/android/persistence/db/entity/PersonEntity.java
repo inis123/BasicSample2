@@ -25,6 +25,7 @@ public class PersonEntity implements Person {
 
 
 
+
     public PersonEntity() {
     }
 
@@ -35,6 +36,14 @@ public class PersonEntity implements Person {
         this.nachname = nachname;
         this.alter = alter;
         this.adressID=adressID;
+    }
+    @Ignore
+    public PersonEntity( String name, String nachname, int alter) {
+
+        this.name = name;
+        this.nachname = nachname;
+        this.alter = alter;
+
     }
     @Ignore
     public PersonEntity( String name, String nachname, int alter,int adressID) {

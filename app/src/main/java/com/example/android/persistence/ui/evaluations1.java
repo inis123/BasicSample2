@@ -10,5 +10,6 @@ public class evaluations1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evaluations1);
+        navBar.initNavBar(getApplicationContext(),this);
     }
 }
