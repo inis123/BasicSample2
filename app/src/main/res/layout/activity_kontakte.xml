@@ -44,61 +44,6 @@
             app:srcCompat="@drawable/bild_11" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="400dp"
-        android:layout_height="500dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/ScrollViewButton1"
-                android:layout_width="350dp"
-                android:layout_height="150dp"
-                android:background="#F7F7F7"
-                android:text="Präzisionstechnik GmbH"
-                android:textSize="25sp"
-                tools:layout_editor_absoluteX="50dp"
-                tools:layout_editor_absoluteY="0dp" />
-
-            <Button
-                android:id="@+id/ScrollViewButton2"
-                android:layout_width="350dp"
-                android:layout_height="150dp"
-                android:background="#F7F7F7"
-                android:text="Spedition GmbH"
-                android:textSize="25sp"
-                tools:layout_editor_absoluteX="50dp"
-                tools:layout_editor_absoluteY="0dp" />
-
-            <Button
-                android:id="@+id/ScrollViewButton3"
-                android:layout_width="350dp"
-                android:layout_height="150dp"
-                android:background="#F7F7F7"
-                android:text="Logistik GmbH"
-                android:textSize="25sp"
-                tools:layout_editor_absoluteX="50dp"
-                tools:layout_editor_absoluteY="0dp" />
-
-            <Button
-                android:id="@+id/ScrollViewButton4"
-                android:layout_width="350dp"
-                android:layout_height="150dp"
-                android:background="#F7F7F7"
-                android:text="Dachser SE"
-                android:textSize="25sp"
-                tools:layout_editor_absoluteX="50dp"
-                tools:layout_editor_absoluteY="0dp" />
-        </LinearLayout>
-    </ScrollView>
 
     <Button
         android:id="@+id/kontaktCreateButton"
@@ -106,12 +51,12 @@
         android:layout_height="wrap_content"
         android:text="create+"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.836"
+        app:layout_constraintHorizontal_bias="0.947"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.411" />
+        app:layout_constraintVertical_bias="0.012" />
 
     <TextView
         android:id="@+id/textView2"
@@ -119,10 +64,12 @@
         android:layout_height="wrap_content"
         android:text="Favoriten"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toStartOf="@+id/kontaktCreateButton"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.031" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -177,4 +124,14 @@
 
             app:srcCompat="@drawable/komponente_2_9" />
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/kontakteRecyclerview"
+        android:layout_width="335dp"
+        android:layout_height="350dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.884" />
 </androidx.constraintlayout.widget.ConstraintLayout>

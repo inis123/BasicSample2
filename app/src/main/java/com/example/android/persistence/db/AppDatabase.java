@@ -1,5 +1,5 @@
 package com.example.android.persistence.db;
-
+//Heger Stefan
 import android.content.Context;
 
 import com.example.android.persistence.db.dao.*;

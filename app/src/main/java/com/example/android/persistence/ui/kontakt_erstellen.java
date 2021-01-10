@@ -12,6 +12,7 @@ import com.example.android.persistence.R;
 import com.example.android.persistence.db.entity.AdressEntity;
 import com.example.android.persistence.db.entity.InteressentEntity;
 import com.example.android.persistence.db.entity.PersonEntity;
+import com.example.android.persistence.viewmodel.kontakt_erstellenViewModel;
 
 public class kontakt_erstellen extends AppCompatActivity {
 
@@ -45,6 +46,8 @@ public class kontakt_erstellen extends AppCompatActivity {
         accept.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 scanData();
+                kontakt_erstellenViewModel.createInteressent(person,interessent,adresse);
+                startActivity(new Intent(getApplicationContext(), kontakte.class));
             }
         });
     }

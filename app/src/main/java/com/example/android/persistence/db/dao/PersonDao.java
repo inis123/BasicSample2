@@ -33,7 +33,8 @@ public interface PersonDao {
     List<MitarbeiterEntity> getMitarbeiterbyName(String name);
     @Query("SELECT * FROM person p WHERE p.name=:name")
     List<PersonEntity> getByName(String name);
-
+    @Query("SELECT * FROM person")
+    List<PersonEntity> getAll();
 
 
 };
