@@ -18,82 +18,60 @@
         app:layout_constraintVertical_bias="0.114"
         app:srcCompat="@drawable/bild_11" />
 
-    <EditText
-        android:id="@+id/EnterNameField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/enter_username"
-        android:inputType="textPersonName"
-        android:text="@string/name"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="@+id/enterPasswordField"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/enterPasswordField"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/enter_username"
-        app:layout_constraintBottom_toTopOf="@+id/EnterNameField"
-        app:layout_constraintEnd_toEndOf="@+id/EnterNameField"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/EnterNameField"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.945" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="@string/enter_password"
-        app:layout_constraintBottom_toTopOf="@+id/enterPasswordField"
-        app:layout_constraintEnd_toEndOf="@+id/EnterNameField"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/EnterNameField"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <EditText
-        android:id="@+id/enterPasswordField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="108dp"
-        android:ems="10"
-        android:hint="@string/enter_password"
-        android:importantForAutofill="no"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.472"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.459" />
-
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="114dp"
-        android:layout_height="66dp"
-        android:text="@string/login"
+    <LinearLayout
+        android:layout_width="342dp"
+        android:layout_height="365dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterPasswordField"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
-    <TextView
-        android:id="@+id/statusField"
-        android:layout_width="400dp"
-        android:layout_height="250dp"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enter_username" />
+
+        <EditText
+            android:id="@+id/EnterNameField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/enter_username"
+            android:inputType="textPersonName"
+             />
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="@string/enter_password" />
+
+        <EditText
+            android:id="@+id/enterPasswordField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/enter_password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="114dp"
+            android:layout_height="66dp"
+            android:text="@string/login" />
+
+        <TextView
+            android:id="@+id/statusField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

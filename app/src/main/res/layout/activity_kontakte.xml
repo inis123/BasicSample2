@@ -127,11 +127,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/kontakteRecyclerview"
-        android:layout_width="335dp"
-        android:layout_height="350dp"
+        android:layout_width="433dp"
+        android:layout_height="558dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.884" />
+        app:layout_constraintTop_toBottomOf="@+id/kontaktCreateButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
