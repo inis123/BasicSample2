@@ -16,7 +16,7 @@ public interface AdressDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(List<AdressEntity> adress);
     @Insert(onConflict = OnConflictStrategy.ABORT)
-    void insert(AdressEntity adress);
+    int insert(AdressEntity adress);
     @Delete
     void delete(AdressEntity adress);
     @Update

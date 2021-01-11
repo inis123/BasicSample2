@@ -20,7 +20,7 @@ public interface PersonDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(List<PersonEntity> persons);
     @Insert(onConflict = OnConflictStrategy.ABORT)
-    void insert(PersonEntity person);
+    int insert(PersonEntity person);
     @Delete
     void Delete(PersonEntity persons);
     @Insert

@@ -94,7 +94,7 @@ public class kontakt_erstellen extends AppCompatActivity {
             public void onClick(View v){
                 scanData();
 
-                keVM.createInteressent(person,interessent,adresse);
+                keVM.createInteressent(getApplicationContext(),person,interessent,adresse);
                 startActivity(new Intent(getApplicationContext(), kontakte.class));
             }
         });

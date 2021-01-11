@@ -127,7 +127,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/kontakteRecyclerview"
-        android:layout_width="433dp"
+        android:layout_width="400dp"
         android:layout_height="558dp"
         android:layout_marginTop="50dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"

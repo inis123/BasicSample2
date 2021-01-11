@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
 import androidx.lifecycle.AndroidViewModel;
 
+import com.example.android.persistence.db.AppDatabase;
 import com.example.android.persistence.db.entity.AdressEntity;
 import com.example.android.persistence.db.entity.InteressentEntity;
 import com.example.android.persistence.db.entity.PersonEntity;
@@ -26,16 +27,23 @@ import static androidx.core.app.ActivityCompat.startActivityForResult;
 
 public class kontakt_erstellenViewModel extends AndroidViewModel {
     PersonEntity pe; InteressentEntity ie; AdressEntity ae;
-    String currentPhotoPath;
-    static final int REQUEST_IMAGE_CAPTURE = 1;
+    AppDatabase db;
+
 
     public kontakt_erstellenViewModel(@NonNull Application application) {
         super(application);
     }
-    public void createInteressent(PersonEntity pe, InteressentEntity ie, AdressEntity ae){
-    this.pe=pe;
-    this.ie=ie;
-    this.ae=ae;
+    public void createInteressent(Context context,PersonEntity pe, InteressentEntity ie, AdressEntity ae){
+        this.pe=pe;
+        this.ie=ie;
+        this.ae=ae;
+        db=AppDatabase.getInstance(context);
+        int adressId=db.adressDao().insert(ae);
+        pe.setAdressID(adressId);
+        int personID=db.personDao().insert(pe);
+        ie.setPersonID(personID);
+        db.interessentDao().insert(ie);
+
     }
     public void getDataByImg(kontakt_erstellen ke, Bitmap imgBitmap){
 

@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android.persistence.R;
+import com.example.android.persistence.db.entity.AdressEntity;
+import com.example.android.persistence.db.entity.InteressentEntity;
 import com.example.android.persistence.db.entity.PersonEntity;
 
 import java.util.List;
@@ -18,6 +20,8 @@ public class kontakteListAdapter extends RecyclerView.Adapter<kontakteListAdapte
 
     private Context context;
     private List<PersonEntity> personList;
+    private List<AdressEntity> adressList;
+    private List<InteressentEntity> interessentList;
 
     public kontakteListAdapter(Context context){
         this.context=context;
@@ -55,5 +59,8 @@ public class kontakteListAdapter extends RecyclerView.Adapter<kontakteListAdapte
             nachname=view.findViewById(R.id.rowtextViewkontaktenachnamen);
 
         }
+    }
+    public interface OnPersonListener{
+        void onPersonClick(int position);
     }
 }

@@ -18,7 +18,7 @@ import android.widget.ImageButton;
 
 import java.util.List;
 
-public class kontakte extends AppCompatActivity {
+public class kontakte extends AppCompatActivity implements kontakteListAdapter.OnPersonListener {
 
     private kontakteListAdapter kListAdapter;
 
@@ -55,6 +55,11 @@ public class kontakte extends AppCompatActivity {
         List<PersonEntity> kontakteList=db.personDao().getAll();
         kListAdapter.setPersonList(kontakteList);
 
+
+    }
+
+    @Override
+    public void onPersonClick(int position) {
 
     }
 }
