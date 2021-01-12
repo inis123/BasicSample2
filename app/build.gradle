@@ -94,5 +94,10 @@ dependencies {
     androidTestImplementation deps.annotations
     androidTestImplementation deps.app_compat
     androidTestImplementation deps.material
-    
+
+    implementation 'com.loopj.android:android-async-http:1.4.9'
+    implementation 'com.android.volley:volley:1.1.1'
+
+
+
 }

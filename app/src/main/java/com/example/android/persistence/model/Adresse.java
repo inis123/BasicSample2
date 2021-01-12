@@ -13,7 +13,7 @@ public interface Adresse {
 
     String getOrt();
 
-    int getPersonID();
+
     int getAdressID();
     String getTelNr();
      String getmTelNr();

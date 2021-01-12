@@ -37,7 +37,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
         public static AppDatabase getInstance(Context context){
                 if(db==null){
-                db = Room.databaseBuilder(context.getApplicationContext(),AppDatabase.class,"roomdb")
+                db = Room.databaseBuilder(context.getApplicationContext(),AppDatabase.class,"roomdb3")
                         .allowMainThreadQueries()
                         .build();
                 db.personDao().insertAll(DataGenerator.genPerson());

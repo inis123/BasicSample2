@@ -15,19 +15,14 @@ import com.example.android.persistence.model.Adresse;
 
 
 
-    @Entity(tableName = "adresse",
-            foreignKeys = {
-            @ForeignKey(entity = PersonEntity.class,
-                    parentColumns = "personID",
-                    childColumns = "personID",
-                    onDelete = ForeignKey.CASCADE)})
+    @Entity(tableName = "adresse")
 
 
     public class AdressEntity implements Adresse {
 
         @PrimaryKey(autoGenerate = true)
         private int adressID;
-        private int personID;
+
         private String Ort;
         private String Strasse;
         private String Hausnummer;
@@ -40,9 +35,9 @@ import com.example.android.persistence.model.Adresse;
         }
 
         @Ignore
-            public AdressEntity(int adressID, int personID, String ort, String strasse, String hausnummer, String land, String plz, String mTelNr, String telNr) {
+            public AdressEntity(int adressID, String ort, String strasse, String hausnummer, String land, String plz, String mTelNr, String telNr) {
             this.adressID = adressID;
-            this.personID = personID;
+
             Ort = ort;
             Strasse = strasse;
             Hausnummer = hausnummer;
@@ -51,17 +46,7 @@ import com.example.android.persistence.model.Adresse;
             this.mTelNr = mTelNr;
             this.telNr = telNr;
         }
-        @Ignore
-        public AdressEntity(int personID, String ort, String strasse, String hausnummer, String land, String plz, String mTelNr, String telNr) {
-            this.personID = personID;
-            Ort = ort;
-            Strasse = strasse;
-            Hausnummer = hausnummer;
-            Land = land;
-            this.plz = plz;
-            this.mTelNr = mTelNr;
-            this.telNr = telNr;
-        }
+
         @Ignore
         public AdressEntity( String ort, String strasse, String hausnummer, String land, String plz, String mTelNr, String telNr) {
 
@@ -84,7 +69,7 @@ import com.example.android.persistence.model.Adresse;
             this.Hausnummer = adresse.getHausnummer();
             this.Land = adresse.getLand();
             this.plz=adresse.getPlz();
-            this.personID=adresse.getPersonID();
+
 
         }
         @Override
@@ -110,10 +95,7 @@ import com.example.android.persistence.model.Adresse;
         public String getLand() {
             return Land;
         }
-        @Override
-        public int getPersonID() {
-            return personID;
-        }
+
 
         @Override
         public String getHausnummer() {
@@ -139,9 +121,7 @@ import com.example.android.persistence.model.Adresse;
             this.adressID = adressID;
         }
 
-        public void setPersonID(int personID) {
-            this.personID = personID;
-        }
+
 
         public void setOrt(String ort) {
             Ort = ort;

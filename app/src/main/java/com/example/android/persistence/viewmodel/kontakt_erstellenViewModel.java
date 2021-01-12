@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
 import androidx.lifecycle.AndroidViewModel;
 
+import com.example.android.persistence.connection.vcard;
 import com.example.android.persistence.db.AppDatabase;
 import com.example.android.persistence.db.entity.AdressEntity;
 import com.example.android.persistence.db.entity.InteressentEntity;
@@ -38,14 +39,15 @@ public class kontakt_erstellenViewModel extends AndroidViewModel {
         this.ie=ie;
         this.ae=ae;
         db=AppDatabase.getInstance(context);
-        int adressId=db.adressDao().insert(ae);
-        pe.setAdressID(adressId);
-        int personID=db.personDao().insert(pe);
-        ie.setPersonID(personID);
+       db.adressDao().insert(ae);
+        pe.setAdressID(ae.getAdressID());
+        db.personDao().insert(pe);
+        ie.setPersonID(pe.getPersonID());
         db.interessentDao().insert(ie);
 
     }
     public void getDataByImg(kontakt_erstellen ke, Bitmap imgBitmap){
+        vcard v=new vcard(ke,imgBitmap);
 
 
     }

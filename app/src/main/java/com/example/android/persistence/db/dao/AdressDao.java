@@ -16,11 +16,10 @@ public interface AdressDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(List<AdressEntity> adress);
     @Insert(onConflict = OnConflictStrategy.ABORT)
-    int insert(AdressEntity adress);
+    void insert(AdressEntity adress);
     @Delete
     void delete(AdressEntity adress);
     @Update
     void update(AdressEntity adress);
-    @Query("SELECT * FROM person p  WHERE EXISTS(SELECT * FROM adresse a WHERE p.personID==a.personID) ")
-    PersonEntity getPerson();
+
 }

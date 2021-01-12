@@ -2,17 +2,17 @@
   "formatVersion": 1,
   "database": {
     "version": 2,
-    "identityHash": "b9dd6ad841a05336bf89a103a344279c",
+    "identityHash": "2f96d140730006d6039fbda3888543bf",
     "entities": [
       {
         "tableName": "kunde",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`kundenID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `nachname` TEXT, `alter` INTEGER NOT NULL, `personID` INTEGER NOT NULL, FOREIGN KEY(`personID`) REFERENCES `person`(`personID`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`kundenID` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `nachname` TEXT, `alter` INTEGER NOT NULL, `personID` INTEGER NOT NULL, FOREIGN KEY(`personID`) REFERENCES `person`(`personID`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "kundenID",
             "columnName": "kundenID",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "name",
@@ -62,13 +62,13 @@
       },
       {
         "tableName": "adresse",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`adressID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `personID` INTEGER NOT NULL, `Ort` TEXT, `Strasse` TEXT, `Hausnummer` TEXT, `Land` TEXT, `plz` TEXT, `mTelNr` TEXT, `telNr` TEXT, FOREIGN KEY(`personID`) REFERENCES `person`(`personID`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`adressID` INTEGER PRIMARY KEY AUTOINCREMENT, `personID` INTEGER NOT NULL, `Ort` TEXT, `Strasse` TEXT, `Hausnummer` TEXT, `Land` TEXT, `plz` TEXT, `mTelNr` TEXT, `telNr` TEXT, FOREIGN KEY(`personID`) REFERENCES `person`(`personID`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "adressID",
             "columnName": "adressID",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "personID",
@@ -142,13 +142,13 @@
       },
       {
         "tableName": "aktivitaet",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`aktNr` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `personID` INTEGER NOT NULL, `mitarbeiterNr` INTEGER NOT NULL, `typ` TEXT, `notiz` TEXT, `status` INTEGER NOT NULL, `frist` INTEGER NOT NULL, FOREIGN KEY(`personID`) REFERENCES `person`(`personID`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`mitarbeiterNr`) REFERENCES `mitarbeiter`(`mitarbeiterNr`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`aktNr` INTEGER PRIMARY KEY AUTOINCREMENT, `personID` INTEGER NOT NULL, `mitarbeiterNr` INTEGER NOT NULL, `typ` TEXT, `notiz` TEXT, `status` INTEGER NOT NULL, `frist` INTEGER NOT NULL, FOREIGN KEY(`personID`) REFERENCES `person`(`personID`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`mitarbeiterNr`) REFERENCES `mitarbeiter`(`mitarbeiterNr`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "aktNr",
             "columnName": "aktNr",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "personID",
@@ -221,13 +221,13 @@
       },
       {
         "tableName": "interessent",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`interessentID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `notiz` TEXT, `Stellung` TEXT, `personID` INTEGER NOT NULL, FOREIGN KEY(`personID`) REFERENCES `person`(`personID`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`interessentID` INTEGER PRIMARY KEY AUTOINCREMENT, `notiz` TEXT, `Stellung` TEXT, `personID` INTEGER NOT NULL, FOREIGN KEY(`personID`) REFERENCES `person`(`personID`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "interessentID",
             "columnName": "interessentID",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "notiz",
@@ -271,13 +271,13 @@
       },
       {
         "tableName": "mitarbeiter",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mitarbeiterNr` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `personID` INTEGER NOT NULL, `password` TEXT, FOREIGN KEY(`personID`) REFERENCES `person`(`personID`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mitarbeiterNr` INTEGER PRIMARY KEY AUTOINCREMENT, `personID` INTEGER NOT NULL, `password` TEXT, FOREIGN KEY(`personID`) REFERENCES `person`(`personID`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "mitarbeiterNr",
             "columnName": "mitarbeiterNr",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "personID",
@@ -315,13 +315,13 @@
       },
       {
         "tableName": "opportunity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`oppNR` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `interessentID` INTEGER NOT NULL, `mitarbeiterNr` INTEGER NOT NULL, `geschaetzterWert` INTEGER NOT NULL, `zeitrahmen` INTEGER NOT NULL, `notiz` TEXT, `status` TEXT, FOREIGN KEY(`interessentID`) REFERENCES `interessent`(`interessentID`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`mitarbeiterNr`) REFERENCES `mitarbeiter`(`mitarbeiterNr`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`oppNR` INTEGER PRIMARY KEY AUTOINCREMENT, `interessentID` INTEGER NOT NULL, `mitarbeiterNr` INTEGER NOT NULL, `geschaetzterWert` INTEGER NOT NULL, `zeitrahmen` INTEGER NOT NULL, `notiz` TEXT, `status` TEXT, FOREIGN KEY(`interessentID`) REFERENCES `interessent`(`interessentID`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`mitarbeiterNr`) REFERENCES `mitarbeiter`(`mitarbeiterNr`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "oppNR",
             "columnName": "oppNR",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "interessentID",
@@ -394,13 +394,13 @@
       },
       {
         "tableName": "person",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`personID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `nachname` TEXT, `alter` INTEGER NOT NULL, `adressID` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`personID` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `nachname` TEXT, `alter` INTEGER NOT NULL, `adressID` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "personID",
             "columnName": "personID",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "name",
@@ -438,13 +438,13 @@
       },
       {
         "tableName": "termin",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`terminNr` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `mitarbeiterNr` INTEGER NOT NULL, `personID` INTEGER NOT NULL, `datum` INTEGER NOT NULL, `betreff` TEXT, `notiz` TEXT, FOREIGN KEY(`personID`) REFERENCES `person`(`personID`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`mitarbeiterNr`) REFERENCES `mitarbeiter`(`mitarbeiterNr`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`terminNr` INTEGER PRIMARY KEY AUTOINCREMENT, `mitarbeiterNr` INTEGER NOT NULL, `personID` INTEGER NOT NULL, `datum` INTEGER NOT NULL, `betreff` TEXT, `notiz` TEXT, FOREIGN KEY(`personID`) REFERENCES `person`(`personID`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`mitarbeiterNr`) REFERENCES `mitarbeiter`(`mitarbeiterNr`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "terminNr",
             "columnName": "terminNr",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "mitarbeiterNr",
@@ -511,13 +511,13 @@
       },
       {
         "tableName": "vertrag",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`vertragsNR` INTEGER NOT NULL, `mitarbeiterNr` INTEGER NOT NULL, `kundenID` INTEGER NOT NULL, `abschlussdatum` INTEGER NOT NULL, `vertragsinhalt` TEXT, `preis` INTEGER NOT NULL, `erfuellungsdatum` TEXT, `status` TEXT, PRIMARY KEY(`vertragsNR`), FOREIGN KEY(`mitarbeiterNr`) REFERENCES `mitarbeiter`(`mitarbeiterNr`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`kundenID`) REFERENCES `kunde`(`kundenID`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`vertragsNR` INTEGER, `mitarbeiterNr` INTEGER NOT NULL, `kundenID` INTEGER NOT NULL, `abschlussdatum` INTEGER NOT NULL, `vertragsinhalt` TEXT, `preis` INTEGER NOT NULL, `erfuellungsdatum` TEXT, `status` TEXT, PRIMARY KEY(`vertragsNR`), FOREIGN KEY(`mitarbeiterNr`) REFERENCES `mitarbeiter`(`mitarbeiterNr`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`kundenID`) REFERENCES `kunde`(`kundenID`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "vertragsNR",
             "columnName": "vertragsNR",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "mitarbeiterNr",
@@ -598,7 +598,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b9dd6ad841a05336bf89a103a344279c')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2f96d140730006d6039fbda3888543bf')"
     ]
   }
 }
