@@ -7,64 +7,11 @@
     tools:context=".ui.kontakt_erstellen">
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="425dp"
-        android:layout_height="88dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-        <ImageButton
-            android:id="@+id/kontakteButton"
-            android:layout_width="84dp"
-            android:layout_height="84dp"
-            android:contentDescription="@string/img_kontakte"
-
-            app:srcCompat="@drawable/komponente_4__9" />
-
-        <ImageButton
-            android:id="@+id/homeButton"
-            android:layout_width="84dp"
-            android:layout_height="84dp"
-            android:contentDescription="@string/img_home"
-
-            app:srcCompat="@drawable/komponente_310" />
-
-        <ImageButton
-
-            android:id="@+id/mapsButton"
-            android:layout_width="84dp"
-            android:layout_height="84dp"
-            android:contentDescription="@string/img_map"
-
-            app:srcCompat="@drawable/komponente_59" />
-
-        <ImageButton
-            android:id="@+id/searchButton"
-            android:layout_width="84dp"
-            android:layout_height="84dp"
-            android:contentDescription="@string/img_search"
-
-            app:srcCompat="@drawable/komponente_62" />
-
-        <ImageButton
-            android:id="@+id/menuButton"
-            android:layout_width="84dp"
-            android:layout_height="84dp"
-            android:contentDescription="@string/img_menu"
-
-            app:srcCompat="@drawable/komponente_2_9" />
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/linearLayout7"
         android:layout_width="432dp"
-        android:layout_height="770dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
