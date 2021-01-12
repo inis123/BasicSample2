@@ -8,6 +8,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.android.persistence.db.entity.AdressEntity;
+import com.example.android.persistence.db.entity.MitarbeiterEntity;
 import com.example.android.persistence.db.entity.PersonEntity;
 
 import java.util.List;
@@ -21,5 +22,6 @@ public interface AdressDao {
     void delete(AdressEntity adress);
     @Update
     void update(AdressEntity adress);
-
+    @Query("SELECT * FROM adresse ")
+    List<AdressEntity> getAllAdress();
 }
