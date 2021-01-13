@@ -30,6 +30,7 @@ import com.example.android.persistence.model.Termin;
         private long datum; //converter
         private String betreff;
         private String notiz;
+        private long zeit;
 
 
 
@@ -45,47 +46,53 @@ import com.example.android.persistence.model.Termin;
             this.betreff=betreff;
             this.notiz=notiz;
         }
-
+    @Ignore
         public TerminEntity(Termin termin) {
-            this.terminNr = termin.terminNr();
-            this.mitarbeiterNr = termin.mitarbeiterNr();
-            this.personID = termin.personID();
-            this.datum = termin.datum();
-            this.betreff = termin.betreff();
-            this.notiz = termin.notiz();
+            this.terminNr = termin.getTerminNr();
+            this.mitarbeiterNr = termin.getMitarbeiterNr();
+            this.personID = termin.getPersonID();
+            this.datum = termin.getDatum();
+            this.betreff = termin.getBetreff();
+            this.notiz = termin.getNotiz();
+            this.zeit = termin.getZeit();
         }
 
         @Override
-        public String notiz() {
+        public String getNotiz() {
             return notiz;
         }
 
         @Override
-        public String betreff() {
+        public String getBetreff() {
             return betreff;
         }
 
         @Override
-        public long datum() {
+        public long getDatum() {
             return datum;
         }
 
         @Override
-        public int personID() {
+        public int getPersonID() {
             return personID;
         }
 
         @Override
-        public int mitarbeiterNr() {
+        public int getMitarbeiterNr() {
             return mitarbeiterNr;
         }
 
         @Override
-        public int terminNr() {
+        public int getTerminNr() {
             return terminNr;
         }
 
-        public void setTerminNr(int terminNr) {
+        @Override
+        public long getZeit() {
+         return zeit;
+         }
+
+    public void setTerminNr(int terminNr) {
             this.terminNr = terminNr;
         }
 

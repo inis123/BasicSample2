@@ -72,7 +72,7 @@ public class kontakt_erstellen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kontakt_erstellen);
 
-        navBar.initNavBar(getApplicationContext(), this);
+        //navBar.initNavBar(getApplicationContext(), this);
 
         setListener();
 

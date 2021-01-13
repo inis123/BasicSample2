@@ -19,8 +19,8 @@ public class KundenEntity implements Kunde {
         private int kundenID;
 
         private String name;
-        private String nachname;
-        private int alter;
+        private String typ;
+
         private int personID;
 
 
@@ -29,26 +29,26 @@ public class KundenEntity implements Kunde {
         }
 
         @Ignore
-        public KundenEntity(int kundenID, String name, String nachname, int price,int personID) {
+        public KundenEntity(int kundenID, String name, String typ, int personID) {
             this.kundenID = kundenID;
             this.name = name;
-            this.nachname = nachname;
-            this.alter = price;
+            this.typ = typ;
+
             this.personID=personID;
         }
         @Ignore
-         public KundenEntity( String name, String nachname, int price,int personID) {
+         public KundenEntity(String name, String typ, int personID) {
           this.name = name;
-          this.nachname = nachname;
-          this.alter = price;
+          this.typ = typ;
+
           this.personID=personID;
         }
 
         public KundenEntity(Kunde kunde) {
             this.kundenID = kunde.getPersonID();
             this.name = kunde.getName();
-            this.nachname = kunde.getNachname();
-            this.alter = kunde.getAlter();
+            this.typ = kunde.getTyp();
+
             this.personID=kunde.getPersonID();
         }
     @Override
@@ -73,21 +73,15 @@ public class KundenEntity implements Kunde {
         this.name = name;
     }
 
-    public String getNachname() {
-        return nachname;
+    public String getTyp() {
+        return typ;
     }
 
-    public void setNachname(String nachname) {
-        this.nachname = nachname;
+    public void setTyp(String typ) {
+        this.typ = typ;
     }
 
-    public int getAlter() {
-        return alter;
-    }
 
-    public void setAlter(int alter) {
-        this.alter = alter;
-    }
 
 
     public void setPersonID(int personID) {

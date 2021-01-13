@@ -77,7 +77,7 @@
         <ScrollView
             android:id="@+id/scrollView3"
             android:layout_width="400dp"
-            android:layout_height="611dp">
+            android:layout_height="690dp">
 
             <LinearLayout
                 android:id="@+id/linearLayout4"
@@ -144,61 +144,6 @@
                     android:text="Mobile"
                     tools:layout_editor_absoluteX="40dp"
                     tools:layout_editor_absoluteY="480dp" />
-
-                <EditText
-                    android:id="@+id/editTextStellung2"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:ems="10"
-                    android:importantForAutofill="no"
-                    android:inputType="textPersonName"
-                    android:text="Regional Manager"
-                    tools:layout_editor_absoluteX="41dp"
-                    tools:layout_editor_absoluteY="380dp" />
-
-                <EditText
-                    android:id="@+id/editTextMobile2"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:ems="10"
-                    android:importantForAutofill="no"
-                    android:inputType="textPersonName"
-                    android:text="Mobile"
-                    tools:layout_editor_absoluteX="40dp"
-                    tools:layout_editor_absoluteY="480dp" />
-
-                <EditText
-                    android:id="@+id/editTextCompany2"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:ems="10"
-                    android:importantForAutofill="no"
-                    android:inputType="textPersonName"
-                    android:text="Company"
-                    tools:layout_editor_absoluteX="41dp"
-                    tools:layout_editor_absoluteY="330dp" />
-
-                <EditText
-                    android:id="@+id/editTextFirstName2"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:ems="10"
-                    android:importantForAutofill="no"
-                    android:inputType="textPersonName"
-                    android:text="First Name"
-                    tools:layout_editor_absoluteX="41dp"
-                    tools:layout_editor_absoluteY="230dp" />
-
-                <EditText
-                    android:id="@+id/editTextLastName2"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:ems="10"
-                    android:importantForAutofill="no"
-                    android:inputType="textPersonName"
-                    android:text="Last Name"
-                    tools:layout_editor_absoluteX="41dp"
-                    tools:layout_editor_absoluteY="280dp" />
 
                 <EditText
                     android:id="@+id/editTextPhone"

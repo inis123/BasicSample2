@@ -1,15 +1,16 @@
 package com.example.android.persistence.model;
 
 public interface Termin {
-    String notiz();
+    String getNotiz();
 
-    String betreff();
+    String getBetreff();
 
-    long datum();
+    long getDatum();
 
-    int personID();
+    int getPersonID();
 
-    int mitarbeiterNr();
+    int getMitarbeiterNr();
 
-    int terminNr();
+    int getTerminNr();
+    long getZeit();
 }
