@@ -115,6 +115,9 @@ import com.example.android.persistence.model.Termin;
         public void setNotiz(String notiz) {
             this.notiz = notiz;
         }
+
+        public void setZeit(long zeit) {this.zeit = zeit; }
     }
+
 
 

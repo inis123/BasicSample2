@@ -31,6 +31,8 @@ public class VertragEntity implements Vertrag {
     public VertragEntity() {
     }
 
+
+
     public VertragEntity(int mitarbeiterNr, int kundenID, long abschlussdatum, String vertragsinhalt,
                          int preis, String erfuellungsdatum, String status) {
         this.mitarbeiterNr = mitarbeiterNr;

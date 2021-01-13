@@ -27,6 +27,7 @@ import com.example.android.persistence.db.entity.AdressEntity;
 import com.example.android.persistence.db.entity.InteressentEntity;
 import com.example.android.persistence.db.entity.PersonEntity;
 import com.example.android.persistence.model.Interessent;
+import com.example.android.persistence.model.Person;
 import com.example.android.persistence.viewmodel.kontakt_erstellenViewModel;
 
 import java.io.File;
@@ -74,6 +75,7 @@ public class kontakt_erstellen extends AppCompatActivity {
 
         //navBar.initNavBar(getApplicationContext(), this);
 
+        initTextField();
         setListener();
 
 
@@ -91,7 +93,9 @@ public class kontakt_erstellen extends AppCompatActivity {
         ImageButton accept = (ImageButton) findViewById(R.id.acceptButton);
         accept.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                scanData();
+
+                //scanData();
+                saveData();
 
                 keVM.createInteressent(getApplicationContext(), person, interessent, adresse);
                 startActivity(new Intent(getApplicationContext(), kontakte.class));
@@ -192,6 +196,32 @@ public class kontakt_erstellen extends AppCompatActivity {
         writeDataToView(pe, ie, ae);
     }
 
+    private void saveData(){
+        int sAlter = Integer.parseInt(alter.getText().toString());
+
+        String sName = name.getText().toString();
+        String sNachname = nachname.getText().toString();
+        String sFirma = firma.getText().toString();
+        String sStellung = stellung.getText().toString();
+        String sMTelNr = mTelNr.getText().toString();
+        String sTelNr = telNr.getText().toString();
+        String sPlz = plz.getText().toString();
+        String sLand = land.getText().toString();
+        String sOrt = ort.getText().toString();
+        String sStrasse = strasse.getText().toString();
+        String sHausNr = hausNr.getText().toString();
+        String sNotiz = notiz.getText().toString();
+
+
+        PersonEntity sampleperson = new PersonEntity(sName, sNachname, sAlter);
+        int personID = sampleperson.getPersonID();
+        AdressEntity sampleadresse = new AdressEntity(personID, sOrt, sStrasse, sHausNr, sLand, sPlz, sMTelNr, sTelNr);
+        int adressID = sampleadresse.getAdressID();
+        sampleperson.setAdressID(adressID);
+        InteressentEntity sampleinteressent = new InteressentEntity(sNotiz, sStellung, personID);
+
+    }
+
     private void writeDataToView(PersonEntity pe, InteressentEntity ie, AdressEntity ae) {
         //PersonEntity
         name.setText(pe.getName());
@@ -210,6 +240,8 @@ public class kontakt_erstellen extends AppCompatActivity {
         hausNr.setText(ae.getHausnummer());
         notiz.setText(ie.getNotiz());
     }
+
+
 
     private void initTextField() {
         name = (EditText) findViewById(R.id.editTextFirstName);
