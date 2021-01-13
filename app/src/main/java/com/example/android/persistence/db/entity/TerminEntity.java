@@ -92,9 +92,7 @@ import com.example.android.persistence.model.Termin;
          return zeit;
          }
 
-    public void setZeit(long zeit) {
-        this.zeit = zeit;
-    }
+
 
     public void setTerminNr(int terminNr) {
             this.terminNr = terminNr;

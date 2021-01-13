@@ -197,7 +197,6 @@ public class kontakt_erstellen extends AppCompatActivity {
     }
 
     private void saveData(){
-        int sAlter = Integer.parseInt(alter.getText().toString());
 
         String sName = name.getText().toString();
         String sNachname = nachname.getText().toString();
@@ -212,8 +211,21 @@ public class kontakt_erstellen extends AppCompatActivity {
         String sHausNr = hausNr.getText().toString();
         String sNotiz = notiz.getText().toString();
 
+        PersonEntity sampleperson = new PersonEntity();
 
-        PersonEntity sampleperson = new PersonEntity(sName, sNachname, sAlter);
+
+        try {
+            int sAlter = Integer.parseInt(alter.getText().toString());
+            sampleperson.setName(sName);
+            sampleperson.setNachname(sNachname);
+            sampleperson.setAlter(sAlter);
+        }catch(Exception a){
+            sampleperson = new PersonEntity();
+            sampleperson.setName(sName);
+            sampleperson.setNachname(sNachname);
+        }
+
+
         int personID = sampleperson.getPersonID();
         AdressEntity sampleadresse = new AdressEntity(personID, sOrt, sStrasse, sHausNr, sLand, sPlz, sMTelNr, sTelNr);
         int adressID = sampleadresse.getAdressID();
