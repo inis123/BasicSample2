@@ -2,6 +2,7 @@ package com.example.android.persistence.db.entity;
 
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.example.android.persistence.model.Vertrag;
@@ -17,6 +18,7 @@ import com.example.android.persistence.model.Vertrag;
                         childColumns = "kundenID",
                         onDelete = ForeignKey.CASCADE)})
 public class VertragEntity implements Vertrag {
+
     @PrimaryKey
     private int vertragsNR;
 
@@ -31,10 +33,10 @@ public class VertragEntity implements Vertrag {
     public VertragEntity() {
     }
 
-
-
+    @Ignore
     public VertragEntity(int mitarbeiterNr, int kundenID, long abschlussdatum, String vertragsinhalt,
                          int preis, String erfuellungsdatum, String status) {
+
         this.mitarbeiterNr = mitarbeiterNr;
         this.kundenID = kundenID;
         this.abschlussdatum = abschlussdatum;
@@ -44,8 +46,11 @@ public class VertragEntity implements Vertrag {
         this.status = status;
     }
 
+
+    @Ignore
     public VertragEntity(int vertragsNR, int mitarbeiterNr, int kundenID, long abschlussdatum,
                          String vertragsinhalt, int preis, String erfuellungsdatum, String status) {
+
         this.vertragsNR = vertragsNR;
         this.mitarbeiterNr = mitarbeiterNr;
         this.kundenID = kundenID;
@@ -55,7 +60,11 @@ public class VertragEntity implements Vertrag {
         this.erfuellungsdatum = erfuellungsdatum;
         this.status = status;
     }
+
+
+    @Ignore
     public VertragEntity(VertragEntity vertrag) {
+
         this.vertragsNR = vertrag.getVertragsNR();
         this.mitarbeiterNr = vertrag.getMitarbeiterNr();
         this.kundenID = vertrag.getKundenID();
@@ -66,6 +75,7 @@ public class VertragEntity implements Vertrag {
         this.status = vertrag.getStatus();
     }
 
+    @Override
     public int getVertragsNR() {
         return vertragsNR;
     }
@@ -104,6 +114,8 @@ public class VertragEntity implements Vertrag {
     public String getStatus() {
         return status;
     }
+
+
 
     public void setVertragsNR(int vertragsNR) {
         this.vertragsNR = vertragsNR;

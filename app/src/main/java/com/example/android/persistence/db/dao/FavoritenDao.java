@@ -7,8 +7,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import com.example.android.persistence.db.entity.FavoritenEntity;
-import com.example.android.persistence.db.entity.PersonEntity;
-import com.example.android.persistence.db.entity.VertragEntity;
+
 
 import java.util.List;
 
@@ -21,6 +20,7 @@ public interface FavoritenDao {
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
     void insert(FavoritenEntity favoriten);
+
     @Delete
     void delete(FavoritenEntity favoriten);
 

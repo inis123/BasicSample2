@@ -17,5 +17,6 @@ public interface Aktivitaet {
 
 
     public int getAktNr();
+
     public String getNotiz();
 }

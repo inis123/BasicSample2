@@ -15,6 +15,8 @@ public interface Adresse {
 
 
     int getAdressID();
+
     String getTelNr();
-     String getmTelNr();
+
+    String getmTelNr();
 }

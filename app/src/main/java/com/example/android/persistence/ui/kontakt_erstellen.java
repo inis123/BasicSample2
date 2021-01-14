@@ -4,7 +4,7 @@ package com.example.android.persistence.ui;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.FileProvider;
+
 
 import android.Manifest;
 import android.content.ContentValues;
@@ -14,7 +14,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
+
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
@@ -26,14 +26,9 @@ import com.example.android.persistence.R;
 import com.example.android.persistence.db.entity.AdressEntity;
 import com.example.android.persistence.db.entity.InteressentEntity;
 import com.example.android.persistence.db.entity.PersonEntity;
-import com.example.android.persistence.model.Interessent;
-import com.example.android.persistence.model.Person;
+
 import com.example.android.persistence.viewmodel.kontakt_erstellenViewModel;
 
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class kontakt_erstellen extends AppCompatActivity {
     private static final int PERMISSION_CODE = 1000;
@@ -67,6 +62,8 @@ public class kontakt_erstellen extends AppCompatActivity {
     private EditText hausNr;
     private EditText notiz;
 
+    private boolean update = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,14 +71,19 @@ public class kontakt_erstellen extends AppCompatActivity {
         setContentView(R.layout.activity_kontakt_erstellen);
 
 
-
         initTextField();
         setListener();
 
+        try {
+            update = keVM.getDataByPersonId(this, getIntent().getExtras().getInt("POS"));
+        } catch (Exception ec) {
+        }
 
     }
 
     private void setListener() {
+
+
         ImageButton abort = (ImageButton) findViewById(R.id.abortButton);
         abort.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -94,13 +96,18 @@ public class kontakt_erstellen extends AppCompatActivity {
         accept.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                //scanData();
+
                 saveData();
 
-                keVM.createInteressent(getApplicationContext(), person, interessent, adresse);
-                startActivity(new Intent(getApplicationContext(), kontakte.class));
+                if (!update)
+                    keVM.createInteressent(getApplicationContext(), person, interessent, adresse);
+                else
+                    //keVM.updateInteressent
+                    startActivity(new Intent(getApplicationContext(), kontakte.class));
             }
         });
+
+
 
         Button scan = (Button) findViewById(R.id.scanCardButton);
         scan.setOnClickListener(new View.OnClickListener() {
@@ -122,9 +129,12 @@ public class kontakt_erstellen extends AppCompatActivity {
         });
 
 
+
+
     }
 
     private void openCamera() {
+
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.TITLE, "new vcard");
         values.put(MediaStore.Images.Media.DESCRIPTION, "new vcard");
@@ -140,6 +150,7 @@ public class kontakt_erstellen extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
         switch (requestCode) {
             case PERMISSION_CODE: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -154,6 +165,7 @@ public class kontakt_erstellen extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
 
@@ -164,30 +176,7 @@ public class kontakt_erstellen extends AppCompatActivity {
         }
     }
 
-    private void scanData() {
 
-        int sAlter = Integer.parseInt(alter.getText().toString());
-
-        String sName = name.getText().toString();
-        String sNachname = nachname.getText().toString();
-        String sFirma = firma.getText().toString();
-        String sStellung = stellung.getText().toString();
-        String sMTelNr = mTelNr.getText().toString();
-        String sTelNr = telNr.getText().toString();
-        String sPlz = plz.getText().toString();
-        String sLand = land.getText().toString();
-        String sOrt = ort.getText().toString();
-        String sStrasse = strasse.getText().toString();
-        String sHausNr = hausNr.getText().toString();
-        String sNotiz = notiz.getText().toString();
-
-
-        person = new PersonEntity(sName, sNachname, sAlter);
-        interessent = new InteressentEntity(sNotiz, sStellung);
-        adresse = new AdressEntity(sOrt, sStrasse, sHausNr, sLand, sPlz, sMTelNr, sTelNr);
-
-
-    }
 
     public void setData(PersonEntity pe, InteressentEntity ie, AdressEntity ae) {
         this.person = pe;
@@ -196,7 +185,7 @@ public class kontakt_erstellen extends AppCompatActivity {
         writeDataToView(pe, ie, ae);
     }
 
-    private void saveData(){
+    private void saveData() {
 
         String sName = name.getText().toString();
         String sNachname = nachname.getText().toString();
@@ -219,29 +208,29 @@ public class kontakt_erstellen extends AppCompatActivity {
             sampleperson.setName(sName);
             sampleperson.setNachname(sNachname);
             sampleperson.setAlter(sAlter);
-        }catch(Exception a){
+        } catch (Exception a) {
             sampleperson = new PersonEntity();
             sampleperson.setName(sName);
             sampleperson.setNachname(sNachname);
         }
 
-
-        int personID = sampleperson.getPersonID();
-        AdressEntity sampleadresse = new AdressEntity(personID, sOrt, sStrasse, sHausNr, sLand, sPlz, sMTelNr, sTelNr);
-        int adressID = sampleadresse.getAdressID();
-        sampleperson.setAdressID(adressID);
-        InteressentEntity sampleinteressent = new InteressentEntity(sNotiz, sStellung, personID);
+        AdressEntity sampleadresse = new AdressEntity(sOrt, sStrasse, sHausNr, sLand, sPlz, sMTelNr, sTelNr);
+        InteressentEntity sampleinteressent = new InteressentEntity(sNotiz, sStellung);
+        keVM.createInteressent(getApplicationContext(), sampleperson, sampleinteressent, sampleadresse);
 
     }
 
     private void writeDataToView(PersonEntity pe, InteressentEntity ie, AdressEntity ae) {
+
         //PersonEntity
         name.setText(pe.getName());
         nachname.setText(pe.getNachname());
         EditText firma = (EditText) findViewById(R.id.editTextCompany);
-        alter.setText(pe.getAlter());
+        alter.setText("" + pe.getAlter());
+
         //InteresentEntity
         stellung.setText(ie.getStellung());
+
         //Adress Entity
         mTelNr.setText(ae.getmTelNr());
         telNr.setText(ae.getTelNr());
@@ -254,14 +243,16 @@ public class kontakt_erstellen extends AppCompatActivity {
     }
 
 
-
     private void initTextField() {
+
         name = (EditText) findViewById(R.id.editTextFirstName);
-        nachname = (EditText) findViewById(R.id.editTextFirstName);
+        nachname = (EditText) findViewById(R.id.editTextLastName);
         firma = (EditText) findViewById(R.id.editTextCompany);
         alter = (EditText) findViewById(R.id.editTextAge);
+
         //InteresentEntity
         stellung = (EditText) findViewById(R.id.editTextStellung);
+
         //Adress Entity
         mTelNr = (EditText) findViewById(R.id.editTextMobile);
         telNr = (EditText) findViewById(R.id.editTextPhone);

@@ -1,6 +1,7 @@
 package com.example.android.persistence.model;
 
 public interface Termin {
+
     String getNotiz();
 
     String getBetreff();
@@ -12,5 +13,6 @@ public interface Termin {
     int getMitarbeiterNr();
 
     int getTerminNr();
+
     long getZeit();
 }

@@ -15,53 +15,53 @@ import com.example.android.persistence.model.Kunde;
                         onDelete = ForeignKey.CASCADE)})
 public class KundenEntity implements Kunde {
 
-       @PrimaryKey(autoGenerate = true)
-        private int kundenID;
+    @PrimaryKey(autoGenerate = true)
+    private int kundenID;
 
-        private String name;
-        private String typ;
-
-        private int personID;
-
+    private String name;
+    private String typ;
+    private int personID;
 
 
-        public KundenEntity() {
-        }
+    public KundenEntity() {
+    }
 
-        @Ignore
-        public KundenEntity(int kundenID, String name, String typ, int personID) {
-            this.kundenID = kundenID;
-            this.name = name;
-            this.typ = typ;
+    @Ignore
+    public KundenEntity(int kundenID, String name, String typ, int personID) {
 
-            this.personID=personID;
-        }
-        @Ignore
-         public KundenEntity(String name, String typ, int personID) {
-          this.name = name;
-          this.typ = typ;
+        this.kundenID = kundenID;
+        this.name = name;
+        this.typ = typ;
+        this.personID = personID;
+    }
 
-          this.personID=personID;
-        }
+    @Ignore
+    public KundenEntity(String name, String typ, int personID) {
 
-        public KundenEntity(Kunde kunde) {
-            this.kundenID = kunde.getPersonID();
-            this.name = kunde.getName();
-            this.typ = kunde.getTyp();
+        this.name = name;
+        this.typ = typ;
+        this.personID = personID;
+    }
 
-            this.personID=kunde.getPersonID();
-        }
+    @Ignore
+    public KundenEntity(Kunde kunde) {
+
+        this.kundenID = kunde.getPersonID();
+        this.name = kunde.getName();
+        this.typ = kunde.getTyp();
+        this.personID = kunde.getPersonID();
+    }
+
+
+
     @Override
     public int getKundenID() {
         return kundenID;
     }
+
     @Override
     public int getPersonID() {
         return personID;
-    }
-
-    public void setKundenID(int kundenID) {
-        this.kundenID = kundenID;
     }
 
     @Override
@@ -69,23 +69,28 @@ public class KundenEntity implements Kunde {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    @Override
     public String getTyp() {
         return typ;
     }
+
+
+
 
     public void setTyp(String typ) {
         this.typ = typ;
     }
 
-
-
-
     public void setPersonID(int personID) {
         this.personID = personID;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setKundenID(int kundenID) {
+        this.kundenID = kundenID;
     }
 }
 

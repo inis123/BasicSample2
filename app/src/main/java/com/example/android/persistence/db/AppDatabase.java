@@ -1,5 +1,6 @@
 package com.example.android.persistence.db;
 //Heger Stefan
+
 import android.content.Context;
 
 import com.example.android.persistence.db.dao.*;
@@ -22,28 +23,33 @@ import androidx.room.RoomDatabase;
 @Database(entities = {KundenEntity.class, AdressEntity.class, AktivitaetEntity.class,
         InteressentEntity.class, MitarbeiterEntity.class, OpportunityEntity.class, PersonEntity.class, TerminEntity.class, VertragEntity.class,}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
-        public abstract KundenDao  kundenDao();
-        public abstract AdressDao adressDao();
-        public abstract InteressentDao interessentDao();
-        public abstract MitarbeiterDao mitarbeiterDao();
-        public abstract OpportiunityDao opportiunityDao();
-        public abstract PersonDao personDao();
-        public abstract TerminDao terminDao();
-        public abstract VertragDao vertragDao();
-
-        private static AppDatabase db;
 
 
+    public abstract KundenDao kundenDao();
+    public abstract AdressDao adressDao();
+    public abstract InteressentDao interessentDao();
+    public abstract MitarbeiterDao mitarbeiterDao();
+    public abstract OpportiunityDao opportiunityDao();
+    public abstract PersonDao personDao();
+    public abstract TerminDao terminDao();
+    public abstract VertragDao vertragDao();
+    private static AppDatabase db;
 
-        public static AppDatabase getInstance(Context context){
-                if(db==null){
-                db = Room.databaseBuilder(context.getApplicationContext(),AppDatabase.class,"roomdb4")
-                        .allowMainThreadQueries()
-                        .build();
-                db.personDao().insertAll(DataGenerator.genPerson());
-                db.mitarbeiterDao().insertAll(DataGenerator.genMitarbeiter());
-                }
-               return db;
+
+    public static AppDatabase getInstance(Context context) {
+
+        if (db == null) {
+            db = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "roomdb6")
+                    .allowMainThreadQueries()
+                    .build();
+
+            db.personDao().insertAll(DataGenerator.genPerson());
+            db.mitarbeiterDao().insertAll(DataGenerator.genMitarbeiter());
+            db.interessentDao().insertAll(DataGenerator.genInteressent());
+            db.adressDao().insertAll(DataGenerator.genAdress());
         }
+
+        return db;
+    }
 
 }

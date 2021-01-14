@@ -5,6 +5,7 @@ import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 import com.example.android.persistence.model.Opportunity;
+
 @Entity(tableName = "opportunity",
         foreignKeys = {
                 @ForeignKey(entity = InteressentEntity.class,
@@ -16,6 +17,7 @@ import com.example.android.persistence.model.Opportunity;
                         childColumns = "mitarbeiterNr",
                         onDelete = ForeignKey.CASCADE)})
 public class OpportunityEntity implements Opportunity {
+
     @PrimaryKey(autoGenerate = true)
     private int oppNR;
 
@@ -26,10 +28,12 @@ public class OpportunityEntity implements Opportunity {
     private String notiz;
     private String status;
 
+
     public OpportunityEntity() {
     }
 
-    public OpportunityEntity(int geschaetzterWert, long zeitrahmen, String notiz, String status,int interessentID) {
+    public OpportunityEntity(int geschaetzterWert, long zeitrahmen, String notiz, String status, int interessentID) {
+
         this.geschaetzterWert = geschaetzterWert;
         this.zeitrahmen = zeitrahmen;
         this.notiz = notiz;
@@ -37,20 +41,23 @@ public class OpportunityEntity implements Opportunity {
         this.interessentID = interessentID;
     }
 
-    public OpportunityEntity(int oppNR, int geschaetzterWert, long zeitrahmen, String notiz, String status,int interessentID) {
+    public OpportunityEntity(int oppNR, int geschaetzterWert, long zeitrahmen, String notiz, String status, int interessentID) {
+
         this.oppNR = oppNR;
         this.geschaetzterWert = geschaetzterWert;
         this.zeitrahmen = zeitrahmen;
         this.notiz = notiz;
         this.status = status;
     }
+
     public OpportunityEntity(Opportunity opp) {
+
         this.oppNR = opp.getOppNR();
         this.geschaetzterWert = opp.getGeschaetzterWert();
         this.zeitrahmen = opp.getZeitrahmen();
         this.notiz = opp.getNotiz();
         this.status = opp.getStatus();
-        this.interessentID =opp.getInteressentID();
+        this.interessentID = opp.getInteressentID();
     }
 
     @Override
@@ -77,14 +84,18 @@ public class OpportunityEntity implements Opportunity {
     public String getStatus() {
         return status;
     }
+
     @Override
     public int getInteressentID() {
         return interessentID;
     }
+
     @Override
     public int getMitarbeiterNr() {
         return mitarbeiterNr;
     }
+
+
 
     public void setOppNR(int oppNR) {
         this.oppNR = oppNR;

@@ -23,6 +23,7 @@ public interface MitarbeiterDao {
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
     void insert(MitarbeiterEntity mitarbeiter);
+
     @Delete
     void delete(MitarbeiterEntity mitarbeiter);
 

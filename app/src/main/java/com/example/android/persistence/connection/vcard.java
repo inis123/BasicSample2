@@ -35,6 +35,7 @@ public class vcard {
         this.ke = ke;
         performPostCall(imgBitmap);
         getRequest(ke.getApplicationContext());
+
     }
 
 
@@ -42,9 +43,12 @@ public class vcard {
 
 
         RequestQueue mQueue = Volley.newRequestQueue(context);
+
         String url = "https://{endpoint}/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyzeResults/{resultId}";
+
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
+
                     @Override
                     public void onResponse(JSONObject response) {
 
@@ -77,13 +81,17 @@ public class vcard {
 
 
     public void performPostCall(Bitmap img) {
+
         int width = img.getWidth();
         int height = img.getHeight();
 
         int size = img.getRowBytes() * img.getHeight();
+
         ByteBuffer byteBuffer = ByteBuffer.allocate(size);
+
         img.copyPixelsToBuffer(byteBuffer);
         byte[] byteArray = byteBuffer.array();
+
         try {
 
             // Defined URL  where to send data

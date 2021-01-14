@@ -25,6 +25,7 @@ public class FavoritenEntity implements Favoriten {
 
     @PrimaryKey(autoGenerate = true)
     private int favID;
+
     private int mitarbeiterNR;
     private int kundenID;
 
@@ -33,7 +34,8 @@ public class FavoritenEntity implements Favoriten {
     }
 
     @Ignore
-    public FavoritenEntity( int favID, int mitarbeiterNR, int kundenID ) {
+    public FavoritenEntity(int favID, int mitarbeiterNR, int kundenID) {
+
         this.favID = favID;
         this.mitarbeiterNR = mitarbeiterNR;
         this.kundenID = kundenID;
@@ -41,6 +43,7 @@ public class FavoritenEntity implements Favoriten {
     }
 
     public FavoritenEntity(Favoriten fav) {
+
         this.favID = fav.getFavID();
         this.mitarbeiterNR = fav.getMitarbeiterNR();
         this.kundenID = fav.getKundenID();
@@ -57,6 +60,20 @@ public class FavoritenEntity implements Favoriten {
 
     public int getKundenID() {
         return kundenID;
+    }
+
+
+
+    public void setFavID(int favID) {
+        this.favID = favID;
+    }
+
+    public void setMitarbeiterNR(int mitarbeiterNR) {
+        this.mitarbeiterNR = mitarbeiterNR;
+    }
+
+    public void setKundenID(int kundenID) {
+        this.kundenID = kundenID;
     }
 }
 

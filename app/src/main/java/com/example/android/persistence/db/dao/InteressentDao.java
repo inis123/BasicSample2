@@ -10,10 +10,12 @@ import androidx.room.Query;
 import com.example.android.persistence.db.entity.InteressentEntity;
 import com.example.android.persistence.db.entity.PersonEntity;
 
+
 import java.util.List;
 
 @Dao
 public interface InteressentDao {
+
     @Query("SELECT * FROM interessent")
     LiveData<List<InteressentEntity>> loadAll();
 
@@ -22,9 +24,15 @@ public interface InteressentDao {
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
     void insert(InteressentEntity interessent);
+
     @Delete
     void delete(InteressentEntity interessent);
 
     @Query("SELECT * FROM person p  WHERE EXISTS(SELECT * FROM interessent m WHERE p.personID==m.personID) AND p.personID == :interessentPersonID ")
     PersonEntity getPerson(int interessentPersonID);
+
+    @Query("SELECT * FROM interessent i WHERE i.personID=:personId")
+    InteressentEntity getByPersonId(int personId);
+
+
 }

@@ -12,49 +12,50 @@ public class PersonEntity implements Person {
 
     @PrimaryKey(autoGenerate = true)
     private int personID;
-    @ColumnInfo(name="name")
+    @ColumnInfo(name = "name")
     private String name;
-    @ColumnInfo(name="nachname")
+    @ColumnInfo(name = "nachname")
     private String nachname;
-    @ColumnInfo(name="alter")
+    @ColumnInfo(name = "alter")
     private int alter;
-    @ColumnInfo(name="adressID")
+    @ColumnInfo(name = "adressID")
     private int adressID;
-
-
-
-
 
 
     public PersonEntity() {
     }
 
     @Ignore
-    public PersonEntity(int id, String name, String nachname, int alter,int adressID) {
+    public PersonEntity(int id, String name, String nachname, int alter, int adressID) {
+
         this.personID = id;
         this.name = name;
         this.nachname = nachname;
         this.alter = alter;
-        this.adressID=adressID;
+        this.adressID = adressID;
     }
+
     @Ignore
-    public PersonEntity( String name, String nachname, int alter) {
+    public PersonEntity(String name, String nachname, int alter) {
 
         this.name = name;
         this.nachname = nachname;
         this.alter = alter;
 
     }
+
     @Ignore
-    public PersonEntity( String name, String nachname, int alter,int adressID) {
+    public PersonEntity(String name, String nachname, int alter, int adressID) {
 
         this.name = name;
         this.nachname = nachname;
         this.alter = alter;
-        this.adressID=adressID;
+        this.adressID = adressID;
     }
+
     @Ignore
     public PersonEntity(Person person) {
+
         this.personID = person.getPersonID();
         this.name = person.getName();
         this.nachname = person.getNachname();
@@ -62,38 +63,45 @@ public class PersonEntity implements Person {
     }
 
 
-
-
     @Override
     public String getName() {
         return name;
     }
+
     @Override
     public String getNachname() {
         return nachname;
     }
+
     @Override
     public int getAlter() {
         return alter;
     }
+
     @Override
     public int getPersonID() {
         return personID;
     }
+
     @Override
     public int getAdressID() {
         return adressID;
     }
 
+
+
     public void setId(int id) {
         this.personID = id;
     }
+
     public void setAlter(int alter) {
         this.alter = alter;
     }
+
     public void setNachname(String nachname) {
         this.nachname = nachname;
     }
+
     public void setName(String name) {
         this.name = name;
     }

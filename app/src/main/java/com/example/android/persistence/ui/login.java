@@ -1,14 +1,8 @@
 package com.example.android.persistence.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
 
-//import com.example.android.persistence.BasicApp;
-import com.example.android.persistence.db.AppDatabase;
-import com.example.android.persistence.db.Datahold;
-import com.example.android.persistence.db.dao.PersonDao;
-import com.example.android.persistence.db.entity.MitarbeiterEntity;
-import com.example.android.persistence.db.entity.PersonEntity;
+
 import com.example.android.persistence.viewmodel.loginViewModel;
 import com.example.android.persistence.R;
 
@@ -17,7 +11,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 
@@ -29,35 +22,36 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
-
-
         Button login = (Button) findViewById(R.id.loginButton);
 
 
         login.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                TextView status=findViewById(R.id.statusField);
+                TextView status = findViewById(R.id.statusField);
 
                 EditText name = (EditText) findViewById(R.id.EnterNameField);
                 EditText password = (EditText) findViewById(R.id.enterPasswordField);
-                switch(loginViewModel.checkLogin(getApplicationContext(),name.getText().toString(),password.getText().toString())){
+
+                switch (loginViewModel.checkLogin(getApplicationContext(), name.getText().toString(), password.getText().toString())) {
                     case 0:
-                           status.setText("Username incorrect");
-                           break;
+                        status.setText("Username incorrect");
+                        break;
                     case 1:
-                            status.setText("permission required");
-                            break;
+                        status.setText("permission required");
+                        break;
                     case 2:
-                            status.setText("success");
-                            startActivity(new Intent(getApplicationContext(), home.class));
-                            break;
+                        status.setText("success");
+                        startActivity(new Intent(getApplicationContext(), home.class));
+                        break;
                     case 3:
-                            status.setText("password incorrect");
-                            break;
+                        status.setText("password incorrect");
+                        break;
                 }
 
             }
         });
+
+
 
     }
 
